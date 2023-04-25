@@ -13,7 +13,7 @@ export const Main = () => {
 
   useEffect(() => {
     isUserLoggedIn ? navigate('/application/accounts') : navigate('/application/auth');
-  }, []);
+  }, [isUserLoggedIn]);
 
   return (
     <main>
