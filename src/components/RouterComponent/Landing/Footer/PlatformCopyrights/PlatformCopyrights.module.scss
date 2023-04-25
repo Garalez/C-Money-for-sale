@@ -1,0 +1,29 @@
+.copyrightsLogoWrapper {
+  margin-right: 4.25vw;
+}
+
+@media (min-width: 1440px) {
+  .copyrightsLogoWrapper {
+    margin-right: 59px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .copyrightsLogoWrapper {
+    margin-right: 4.44vw;
+    gap: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .copyrightsLogoWrapper {
+    margin-bottom: 22px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .copyrightsLogoWrapper {
+    margin-bottom: 19px;
+  }
+}

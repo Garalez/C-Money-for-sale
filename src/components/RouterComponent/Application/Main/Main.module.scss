@@ -1,0 +1,33 @@
+.mainWrapper {
+  min-height: calc(100vh - 78px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--purple);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.copyrightsWrapper {
+  width: 100%;
+  max-width: 1440px;
+  padding: 40px 130px 51px 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--purple);
+  justify-self: flex-end;
+}
+
+.copyrightsMark {
+  align-self: flex-end;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--white);
+}

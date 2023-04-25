@@ -1,0 +1,13 @@
+.headerWrapper {
+  background-color: var(--app-light-purple);
+  display: flex;
+  justify-content: center;
+}
+
+.contentWrapper {
+  width: 100%;
+  max-width: 1440px;
+  padding: 18px 130px;
+  display: flex;
+  justify-content: space-between;
+}
