@@ -5,7 +5,6 @@ import Navigation from './Navigation';
 
 export const Header = () => {
   const isUserLoggedIn = JSON.parse(localStorage.getItem('isUserLoggedIn'));
-  console.log('isUserLoggedIn: ', isUserLoggedIn);
 
   return (
     <header>
