@@ -19,12 +19,16 @@
 }
 
 .copyrights {
+  width: 100%;
+}
+
+.copyrightText {
+  max-width: 700px;
   color: var(--white);
   font-family: 'Nunito';
   font-weight: 400;
   font-size: 18px;
   line-height: 130%;
-  white-space: nowrap;
 }
 
 .footerLinksWrapper {

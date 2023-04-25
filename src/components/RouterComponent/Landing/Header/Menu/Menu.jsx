@@ -12,6 +12,9 @@ export const Menu = () => (
       <li className={style.item}>
         <a className={style.link} href='#reviews'>Отзывы</a>
       </li>
+      <li className={style.item}>
+        <a className={style.link} href='/application'>Личный кабинет</a>
+      </li>
     </ul>
   </nav>
 );

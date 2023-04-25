@@ -23,13 +23,17 @@ export const AccountCreationForm = ({
   const formSubmit = (e) => {
     e.preventDefault();
 
-    if (formValues.login && formValues.password && (formValues.confirmPassword === formValues.password)) {
+    if (
+      formValues.login &&
+      formValues.password &&
+      formValues.confirmPassword === formValues.password
+    ) {
       accountCreationFormSubmit();
     } else {
       setIsInputValid({
         login: !!formValues.login,
         password: !!formValues.password,
-        confirmPassword: (formValues.confirmPassword === formValues.password),
+        confirmPassword: formValues.confirmPassword === formValues.password,
       });
     }
   };
@@ -106,8 +110,10 @@ export const AccountCreationForm = ({
               className={style.customCheckboxLabel}
               htmlFor='customCheckbox'
             >
-              By clicking on the button, I consent to the processing of personal
-              data and agree to the privacy policy
+              <div className={style.customCheckboxAgreement}>
+                By clicking on the button, I consent to the processing of
+                personal data and agree to the privacy policy
+              </div>
             </label>
           </div>
         </div>

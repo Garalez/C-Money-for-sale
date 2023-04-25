@@ -1,16 +1,11 @@
 /* eslint-disable max-len */
 import style from './CurrencyExchangeForm.module.scss';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { ReactComponent as SelectArrowSvg } from '../../../../../../assets/svg/blackCustomSelectArrow.svg';
 import { useOutsideClick } from '../../../../../../hooks/useOutsideClick';
-import { currencyRequestAsync } from '../../../../../../store/currencyRequest/currencyRequestActions';
-import { currencyBuyRequestAsync } from '../../../../../../store/buyCurrency/buyCurrencyActions';
 
 export const CurrencyExchangeForm = ({ currencyTypes }) => {
-  const dispatch = useDispatch();
-
   const [openSelectFrom, setOpenSelectFrom] = useState(false);
   const [openSelectTo, setOpenSelectTo] = useState(false);
 
@@ -30,9 +25,6 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
 
   const formSubmit = (e) => {
     e.preventDefault();
-
-    dispatch(currencyBuyRequestAsync(selectFromValue, selectToValue, transferSum));
-    dispatch(currencyRequestAsync());
     setTransferSum('');
   };
 

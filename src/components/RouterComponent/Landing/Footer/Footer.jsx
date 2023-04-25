@@ -15,7 +15,13 @@ export const Footer = () => (
         <PlatformContacts />
         <PlatformOnMap />
       </div>
-      <p className={style.copyrights}>© C-Money, 2022</p>
+      <div className={style.copyrights}>
+        <p className={style.copyrightText}>
+          Генеральная лицензия Банка России профессионального участника рынка
+          крипто активов на осуществление брокерской деятельности, №
+          045-02894-100000 от 11.08.2022 г.
+        </p>
+      </div>
     </div>
   </footer>
 );

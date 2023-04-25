@@ -11,7 +11,7 @@ export const PlatformInfo = () => {
   return (
     <section className={style.infoSection} id='platformInfo'>
       <div className={style.textWrapper}>
-        <h1 className={style.title}>Платформа C-Money</h1>
+        <h1 className={style.title}>Платформа 7 Монет</h1>
         <p className={style.subtitle}>
           Удобная платформа для хранения счётов, перевода валюты и покупки
           криптовалюты

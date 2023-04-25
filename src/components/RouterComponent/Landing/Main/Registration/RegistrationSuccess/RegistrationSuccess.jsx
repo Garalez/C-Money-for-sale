@@ -8,12 +8,13 @@ export const RegistrationSuccess = () => (
       <Check className={style.registrationSuccessCheck} />
       <div className={style.registrationSuccessTextWrapper}>
         <h2 className={style.registrationSuccessTitle}>
-          Вы успешно зарегистрировались на платформе C-Money!
+          Вы успешно зарегистрировались на платформе 7 Монет!
         </h2>
-        <p className={style.registrationSuccessText}>
-          Ссылка для входа в личный кабинет отправлена на вашу электронную почту
-          (не забудьте проверить папку «Спам»)
-        </p>
+        <div className={style.registrationSuccessText}>
+          <a href='/application' className={style.registrationSuccessLink}>
+            Перейти в личный кабинет
+          </a>
+        </div>
       </div>
     </div>
   </section>

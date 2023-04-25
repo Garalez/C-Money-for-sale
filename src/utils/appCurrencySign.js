@@ -1,1 +1,1 @@
-export const APP_CURRENCY_SIGN = '$';
+export const APP_CURRENCY_SIGN = '₿';

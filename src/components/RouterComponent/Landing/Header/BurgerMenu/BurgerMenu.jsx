@@ -38,6 +38,11 @@ export const BurgerMenu = () => {
               <li className={style.item}>
                 <a href='#reviews'>Отзывы</a>
               </li>
+              <li className={style.item}>
+                <a className={style.link} href='/application'>
+                  Личный кабинет
+                </a>
+              </li>
             </ul>
           </nav>
           <div className={style.underline} />

@@ -1,59 +1,55 @@
 /* eslint-disable max-len */
 import style from './Auth.module.scss';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { userTokenRequestAsync } from '../../../../../store/tokenRequest/tokenRequestActions';
-import { Preloader } from '../../../../../UI/Preloader/Preloader';
+// import { useNavigate } from 'react-router-dom';
 
 export const Auth = () => {
-  const dispatch = useDispatch();
-  const userData = useSelector((state) => state.userToken);
+  // const navigate = useNavigate();
+  const userData = JSON.parse(localStorage.getItem('userData'));
 
   const [userAccountData, setUserAccountData] = useState({
     login: '',
     password: '',
   });
 
-  const [displayErrorMassage, setDisplayErrorMassage] = useState({
-    login: false,
-    password: false,
-  });
+  const [displayErrorMassage, setDisplayErrorMassage] = useState(false);
 
-  const inputValidation = () => {
-    setDisplayErrorMassage({
-      login: !!(userAccountData.login && userAccountData.login.length <= 5),
-      password: !!(userAccountData.password && userAccountData.password.length <= 5),
-    });
-  };
+  // const inputValidation = () => {
+  //   setDisplayErrorMassage({
+  //     login: !!(userAccountData.login && userAccountData.login !== userData.login),
+  //     password: !!(userAccountData.password && userAccountData.password !== userData.password),
+  //   });
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const regexNonWord = /[^a-zA-Z]/;
+    const regexNonWord = /[^a-zA-Z0-9]/;
 
     setUserAccountData({
       ...userAccountData,
       [name]: value.replace(regexNonWord, ''),
     });
 
-    if (e.target.name === 'login' && value.length >= 6) {
-      setDisplayErrorMassage({ ...displayErrorMassage, login: false });
-    }
+    // if (e.target.name === 'login' && value === userData.login) {
+    //   setDisplayErrorMassage({ ...displayErrorMassage, login: false });
+    // }
 
-    if (e.target.name === 'password' && value.length >= 6) {
-      setDisplayErrorMassage({ ...displayErrorMassage, password: false });
-    }
+    // if (e.target.name === 'password' && value === userData.password) {
+    //   setDisplayErrorMassage({ ...displayErrorMassage, password: false });
+    // }
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
     if (
-      userAccountData.login.length >= 6 &&
-      userAccountData.password.length >= 6
+      userAccountData.login === userData.login &&
+      userAccountData.password === userData.password
     ) {
-      dispatch(
-        userTokenRequestAsync(userAccountData.login, userAccountData.password)
-      );
+      localStorage.setItem('isUserLoggedIn', true);
+      location.reload();
+    } else {
+      setDisplayErrorMassage(true);
     }
   };
 
@@ -75,14 +71,9 @@ export const Auth = () => {
                   name='login'
                   onChange={(e) => handleChange(e)}
                   value={userAccountData.login}
-                  onBlur={() => inputValidation()}
+                  // onBlur={() => inputValidation()}
                   required
                 />
-                {displayErrorMassage.login && (
-                  <p className={style.authInputError}>
-                    Логин должен содерать от 6 символов
-                  </p>
-                )}
               </li>
               <li className={style.authInputItem}>
                 <label className={style.authLabel} htmlFor='password'>
@@ -95,28 +86,19 @@ export const Auth = () => {
                   name='password'
                   onChange={(e) => handleChange(e)}
                   value={userAccountData.password}
-                  onBlur={() => inputValidation()}
+                  // onBlur={() => inputValidation()}
                   required
                 />
-                {displayErrorMassage.password && (
-                  <p className={style.authInputError}>
-                    Пароль должен содерать от 6 символов
-                  </p>
-                )}
               </li>
             </ul>
             <div className={style.authBtnWrapper}>
               <button className={style.authFormSubmit} type='submit'>
                 Войти
               </button>
-              {userData.status === 'loading' ? (
-                  <Preloader color={'white'} />
-              ) : userData.status === 'rejected' ? (
+              {displayErrorMassage && (
                 <p className={style.authInputError}>
-                  Неверные данные пользователя
+                  Неверный данные. Попробуйте еще раз
                 </p>
-              ) : (
-                <></>
               )}
             </div>
           </form>

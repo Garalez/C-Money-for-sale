@@ -1,5 +1,5 @@
 .mainWrapper {
-  min-height: calc(100vh - 78px);
+  min-height: calc(100vh - 74px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,4 +30,16 @@
   font-size: 15px;
   line-height: 20px;
   color: var(--white);
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
 }

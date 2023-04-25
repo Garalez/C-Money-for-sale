@@ -17,7 +17,7 @@ export const Header = () => {
             aria-label='Логотип и переход к приложению'
             className={style.logoWrapper}
           >
-            <LogoSvg className={style.logo} />
+            <LogoSvg className={style.logo} /> 7-Monet
           </a>
           {width <= 768 ? <BurgerMenu /> : <Menu />}
         </div>

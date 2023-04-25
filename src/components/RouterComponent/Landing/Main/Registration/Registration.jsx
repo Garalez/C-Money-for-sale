@@ -64,6 +64,7 @@ export const Registration = () => {
   };
 
   const accountCreationFormSubmit = () => {
+    localStorage.setItem('userData', JSON.stringify(formValues));
     setIsTabValid({ ...isTabValid, thirdTabIsValid: true });
   };
 

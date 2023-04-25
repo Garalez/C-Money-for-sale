@@ -1,3 +1,36 @@
+.registrationSuccessLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 380px;
+  height: 70px;
+  background: var(--main-gradient);
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.registrationSuccessLink:hover {
+  background: var(--main-gradient-hover);
+  color: var(--white);
+}
+
+.registrationSuccessLink:focus {
+  background: var(--main-gradient-focus);
+  color: var(--white);
+}
+
+.registrationSuccessLink:disabled {
+  background: var(--grey);
+  color: var(--white);
+  cursor: initial;
+}
+
 .registrationSuccess {
   width: 100%;
   padding-top: 43px;
@@ -33,13 +66,27 @@
 }
 
 .registrationSuccessText {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 130%;
-  color: var(--purple);
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registrationSuccessBtn {
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .registrationSuccessLink {
+    width: 49.5vw;
+    font-size: 2.35vw;
+  }
+}
+
+@media (max-width: 550px) {
+  .registrationSuccessLink {
+    width: 56.5vw;
+    font-size: 3vw;
+  }
 }
 
 @media (max-width: 420px) {
@@ -64,5 +111,14 @@
 
   .registrationSuccessCheck {
     margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  .registrationSuccessLink {
+    width: 290px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 22px;
   }
 }

@@ -4,8 +4,8 @@ import { ReactComponent as PlatformLogoSvg } from '../../../../../assets/svg/whi
 
 export const PlatformCopyrights = () => (
   <div className={style.copyrightsLogoWrapper}>
-    <a href='/application' aria-label='Логотип и переход к приложению'>
-      <PlatformLogoSvg />
+    <a href='/application' aria-label='Логотип и переход к приложению' className={style.platformLogo}>
+      <PlatformLogoSvg /> 7-Monet
     </a>
   </div>
 );

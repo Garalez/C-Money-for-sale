@@ -1,114 +1,33 @@
 /* eslint-disable max-len */
 import style from './AccountInfo.module.scss';
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { userAccountsRequestAsync } from '../../../../../store/accountsRequest/accountsRequestActions';
-import { ReactComponent as ArrowSvg } from '../../../../../assets/svg/whiteCustomSelectArrow.svg';
-import { useOutsideClick } from '../../../../../hooks/useOutsideClick';
-import { createNewUserAccount } from '../../../../../utils/createNewUserAccount';
-import { Preloader } from '../../../../../UI/Preloader/Preloader';
 import MyAccounts from './MyAccounts';
-import CustomSelect from './CustomSelect';
 
 export const AccountInfo = () => {
-  const dispatch = useDispatch();
-  const userAccounts = useSelector((state) => state.userAccounts);
-  const [toggleSelect, setToggleSelect] = useState(false);
-  const [selectValue, setSelectValue] = useState('дате');
-  const domNodeRef = useOutsideClick(() => setToggleSelect(false));
+  const userData = JSON.parse(localStorage.getItem('userData'));
 
-  useEffect(() => {
-    dispatch(userAccountsRequestAsync());
-  }, []);
+  const userAccounts = [{
+    account: 'Bitcoin',
+    balance: 35,
+    date: new Date(),
+    transactions: [{
+      date: '2021-10-10T00:00:00.000Z',
+      amount: 0.00000000,
+      currency: 'Bitcoin',
+    }],
+  }];
 
-  const userAccountsSort = (e) => {
-    const sortSelect = e.target.outerText;
-
-    userAccounts.accounts.sort((a, b) => {
-      if (sortSelect === 'Номеру счёта') {
-        return +a.account > +b.account ? -1 : 1;
-      }
-
-      if (sortSelect === 'Балансу') return a.balance > b.balance ? -1 : 1;
-
-      if (sortSelect === 'Дате') {
-        return new Date(a.date).getTime() > new Date(b.date).getTime() ? -1 : 1;
-      }
-
-      if (sortSelect === 'Последней транзакции') {
-        const firstTransactionDateToCompare =
-          a.transactions.length > 0 ? a.transactions[0].date : 0;
-        const secondTransactionDateToCompare =
-          b.transactions.length > 0 ? b.transactions[0].date : 0;
-
-        return new Date(firstTransactionDateToCompare).getTime() >
-          new Date(secondTransactionDateToCompare).getTime() ?
-          -1 :
-          1;
-      }
-    });
-
-    setSelectValue(sortSelect);
-    setToggleSelect(false);
-  };
-
-  const createNewAccount = () => {
-    createNewUserAccount();
-    dispatch(userAccountsRequestAsync());
-  };
-
-  const selectData = [
-    'Номеру счёта',
-    'Балансу',
-    'Дате',
-    'Последней транзакции',
-  ];
-
-  return userAccounts.status === 'loading' ? (
-    <div className={style.preloaderWrapper}>
-      <Preloader color='white' />
-    </div>
-  ) : (
+  return (
     <section className={style.account}>
       <div className={style.accountWrapper}>
         <div className={style.accountTitleWrapper}>
-          <h1 className={style.accountTitle}>Здравствуйте, Александр!</h1>
-          <button
-            onClick={() => createNewAccount()}
-            className={style.accountBtn}
-          >
-            Открыть новый счет
-          </button>
+          <h1 className={style.accountTitle}>Здравствуйте, {userData.name}!</h1>
+          <button className={style.accountBtn}>Пополнить счёт</button>
         </div>
         <div className={style.accountInfoWrapper}>
           <p className={style.accountSubtitle}>Мои счета</p>
-          <div ref={domNodeRef} className={style.accountSortWrapper}>
-            <div
-              className={style.accountSortTextWrapper}
-              onClick={() => setToggleSelect(!toggleSelect)}
-            >
-              <p className={style.accountSortText}>Сортировка:</p>
-              <div className={style.accountSort}>
-                {`По ${selectValue.toLowerCase()}`}{' '}
-                <ArrowSvg className={toggleSelect ? style.activeSelect : ''} />
-              </div>
-            </div>
-            {toggleSelect && (
-              <ul className={style.accountSortSelectList}>
-                {selectData.map((item, index) => (
-                  <CustomSelect
-                    key={index}
-                    data={item}
-                    userAccountsSort={userAccountsSort}
-                    selectValue={selectValue}
-                  />
-                ))}
-              </ul>
-            )}
-          </div>
         </div>
         <ul className={style.accountList}>
-          {userAccounts.accounts.map((account) => (
+          {userAccounts.map((account) => (
             <MyAccounts key={account.account} account={account} />
           ))}
         </ul>
