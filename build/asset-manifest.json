@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.62938a11.css",
-    "main.js": "/static/js/main.77663f1d.js",
+    "main.js": "/static/js/main.3d661427.js",
     "static/media/transferLogo1280.png": "/static/media/transferLogo1280.9c155abe0017c26acc04.png",
     "static/media/Nunito-Regular.ttf": "/static/media/Nunito-Regular.99a3b019e7727ac19479.ttf",
     "static/media/Nunito-SemiBold.ttf": "/static/media/Nunito-SemiBold.77c1e330694154d3efed.ttf",
@@ -36,10 +36,10 @@
     "static/media/registrationSuccessCheckmark.svg": "/static/media/registrationSuccessCheckmark.ec31299a7c32246052fae338199f93cb.svg",
     "static/media/customCheckboxMark.svg": "/static/media/customCheckboxMark.0411e24a88f81fb07f9e.svg",
     "main.62938a11.css.map": "/static/css/main.62938a11.css.map",
-    "main.77663f1d.js.map": "/static/js/main.77663f1d.js.map"
+    "main.3d661427.js.map": "/static/js/main.3d661427.js.map"
   },
   "entrypoints": [
     "static/css/main.62938a11.css",
-    "static/js/main.77663f1d.js"
+    "static/js/main.3d661427.js"
   ]
 }
