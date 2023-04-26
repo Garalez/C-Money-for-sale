@@ -1,11 +1,14 @@
 /* eslint-disable max-len */
 import style from './Navigation.module.scss';
 import { ReactComponent as ExitSvg } from '../../../../../assets/svg/exitSvg.svg';
+import { useNavigate } from 'react-router-dom';
 
 export const Navigation = () => {
+  const navigate = useNavigate();
+
   const handleLeaveAccount = () => {
     localStorage.removeItem('isUserLoggedIn');
-    location.reload();
+    navigate('/application/auth');
   };
 
   return (

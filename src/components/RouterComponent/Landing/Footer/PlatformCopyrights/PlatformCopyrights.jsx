@@ -9,7 +9,7 @@ export const PlatformCopyrights = () => {
   return (
     <div className={style.copyrightsLogoWrapper}>
       <div
-        onClick={() => navigate('/application')}
+        onClick={() => navigate('/application/auth')}
         aria-label='Логотип и переход к приложению'
         className={style.platformLogo}
       >

@@ -23,7 +23,10 @@ export const Menu = () => {
           </a>
         </li>
         <li className={style.item}>
-          <div className={style.link} onClick={() => navigate('/application')}>
+          <div
+            className={style.link}
+            onClick={() => navigate('/application/auth')}
+          >
             Личный кабинет
           </div>
         </li>

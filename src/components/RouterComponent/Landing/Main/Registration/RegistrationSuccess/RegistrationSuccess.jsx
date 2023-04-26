@@ -17,7 +17,7 @@ export const RegistrationSuccess = () => {
           <div className={style.registrationSuccessText}>
             <div
               className={style.registrationSuccessLink}
-              onClick={() => navigate('application')}
+              onClick={() => navigate('application/auth')}
             >
               Перейти в личный кабинет
             </div>

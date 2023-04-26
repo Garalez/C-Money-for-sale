@@ -15,7 +15,7 @@ export const Header = () => {
       <div className={style.header}>
         <div className={style.headerWrapper}>
           <div
-            onClick={() => navigate('/application')}
+            onClick={() => navigate('/application/auth')}
             className={style.logoWrapper}
           >
             <LogoSvg className={style.logo} /> 7-Monet

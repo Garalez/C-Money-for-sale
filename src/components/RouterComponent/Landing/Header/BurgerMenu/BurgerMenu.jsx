@@ -24,7 +24,7 @@ export const BurgerMenu = () => {
         <div className={style.burgerWrapper}>
           <div
             className={style.logoWrapper}
-            onClick={() => navigate('/application')}
+            onClick={() => navigate('/application/auth')}
             aria-label='Логотип и переход к приложению'
           >
             <LogoSvg className={style.logo} />
@@ -43,7 +43,7 @@ export const BurgerMenu = () => {
               <li className={style.item}>
                 <div
                   className={style.link}
-                  onClick={() => navigate('/application')}
+                  onClick={() => navigate('/application/auth')}
                 >
                   Личный кабинет
                 </div>
