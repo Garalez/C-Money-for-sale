@@ -10,17 +10,12 @@ export const Header = () => {
   const { width } = useWindowDimensions();
   const navigate = useNavigate();
 
-  const navigateToApplication = () => {
-    navigate('/application');
-    location.reload();
-  };
-
   return (
     <header>
       <div className={style.header}>
         <div className={style.headerWrapper}>
           <div
-            onClick={() => navigateToApplication()}
+            onClick={() => navigate('/application')}
             className={style.logoWrapper}
           >
             <LogoSvg className={style.logo} /> 7-Monet
