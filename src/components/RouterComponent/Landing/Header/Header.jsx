@@ -4,21 +4,22 @@ import { ReactComponent as LogoSvg } from '../../../../assets/svg/violetLogo.svg
 import useWindowDimensions from '../../../../hooks/screenViewPort';
 import BurgerMenu from './BurgerMenu';
 import Menu from './Menu';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
   const { width } = useWindowDimensions();
+  const navigate = useNavigate();
 
   return (
     <header>
       <div className={style.header}>
         <div className={style.headerWrapper}>
-          <a
-            href='/application'
-            aria-label='Логотип и переход к приложению'
+          <div
+            onClick={() => navigate('/application')}
             className={style.logoWrapper}
           >
             <LogoSvg className={style.logo} /> 7-Monet
-          </a>
+          </div>
           {width <= 768 ? <BurgerMenu /> : <Menu />}
         </div>
       </div>
