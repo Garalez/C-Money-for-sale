@@ -15,7 +15,7 @@ export const Header = () => {
       <div className={style.header}>
         <div className={style.headerWrapper}>
           <div
-            onClick={() => navigate('https://c-money-for-sale-ex2e.vercel.app/application')}
+            onClick={() => navigate('/application')}
             className={style.logoWrapper}
           >
             <LogoSvg className={style.logo} /> 7-Monet
