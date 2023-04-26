@@ -17,6 +17,10 @@
   line-height: 20px;
 }
 
+.link {
+  cursor: pointer;
+}
+
 .link:hover {
   color: var(--pink);
 }

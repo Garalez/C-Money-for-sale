@@ -4,9 +4,11 @@ import { useState } from 'react';
 import { ReactComponent as LogoSvg } from '../../../../../assets/svg/violetLogo.svg';
 import { ReactComponent as CloseSvg } from '../../../../../assets/svg/burgerMenuClose.svg';
 import { ReactComponent as BurgerLogoSvg } from '../../../../../assets/svg/burgerMenu.svg';
+import { useNavigate } from 'react-router-dom';
 
 export const BurgerMenu = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -20,13 +22,13 @@ export const BurgerMenu = () => {
         </button>
       ) : (
         <div className={style.burgerWrapper}>
-          <a
-            href='/application'
+          <div
             className={style.logoWrapper}
+            onClick={() => navigate('/application')}
             aria-label='Логотип и переход к приложению'
           >
             <LogoSvg className={style.logo} />
-          </a>
+          </div>
           <nav className={style.navigate}>
             <ul className={style.list}>
               <li className={style.item}>
@@ -39,9 +41,12 @@ export const BurgerMenu = () => {
                 <a href='#reviews'>Отзывы</a>
               </li>
               <li className={style.item}>
-                <a className={style.link} href='/application'>
+                <div
+                  className={style.link}
+                  onClick={() => navigate('/application')}
+                >
                   Личный кабинет
-                </a>
+                </div>
               </li>
             </ul>
           </nav>
