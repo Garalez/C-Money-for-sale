@@ -75,9 +75,11 @@
 }
 
 html {
-  position: relative;
+  // position: relative;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  // overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 *,
@@ -87,13 +89,15 @@ html {
 }
 
 body {
+  height: 100%;
+width: 100%;
+  position: relative;
   min-width: 320px;
   min-height: 100vh;
   font-family: Comfortaa, Nunito, sans-serif;
   font-size: 16px;
   font-weight: 400;
   overflow-x: hidden;
-  clip-path: inset(0);
   background-color: var(--white);
 }
 

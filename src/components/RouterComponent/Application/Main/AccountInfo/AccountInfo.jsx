@@ -5,23 +5,34 @@ import MyAccounts from './MyAccounts';
 export const AccountInfo = () => {
   const userData = JSON.parse(localStorage.getItem('userData'));
 
-  const userAccounts = [{
-    account: 'Bitcoin',
-    balance: 35,
-    date: new Date(),
-    transactions: [{
-      date: '2021-10-10T00:00:00.000Z',
-      amount: 0.00000000,
-      currency: 'Bitcoin',
-    }],
-  }];
+  const userAccounts = [
+    {
+      account: 'Bitcoin',
+      balance: 35,
+      date: new Date(),
+      transactions: [
+        {
+          date: '2021-10-10T00:00:00.000Z',
+          amount: 0.0,
+          currency: 'Bitcoin',
+        },
+      ],
+    },
+  ];
 
   return (
     <section className={style.account}>
       <div className={style.accountWrapper}>
         <div className={style.accountTitleWrapper}>
           <h1 className={style.accountTitle}>Здравствуйте, {userData.name}!</h1>
-          <button className={style.accountBtn}>Пополнить счёт</button>
+          <a
+            href='https://my.qiwi.com/Tatiana-BDWWHiMYMA'
+            target='_blank'
+            rel='noreferrer'
+            className={style.accountBtn}
+          >
+            Пополнить счёт
+          </a>
         </div>
         <div className={style.accountInfoWrapper}>
           <p className={style.accountSubtitle}>Мои счета</p>

@@ -3,6 +3,7 @@
   margin: 0 auto;
   display: flex;
   padding: 16px 0 50px 50px;
+  overflow-x: hidden;
 }
 
 .textWrapper {
@@ -68,7 +69,7 @@
 
 .rectangle {
   position: absolute;
-  top: -20%;
+  top: -19.2%;
   right: -30%;
   width: 86.7%;
   height: 1021px;
@@ -79,6 +80,7 @@
     #a400be 113.27%
   );
   border-radius: 0px 0px 0px 150px;
+  overflow: hidden;
   transform: rotate(21.28deg);
   z-index: -1;
 }
@@ -95,7 +97,7 @@
   }
 
   .rectangle {
-    top: -22.56%;
+    top: -25.2%;
     right: -30%;
     width: 94.2%;
     height: 978px;
@@ -140,7 +142,7 @@
   }
 
   .rectangle {
-    top: -11.44%;
+    top: -11.2%;
     right: -80%;
     width: 132.6%;
     height: 919px;
@@ -166,8 +168,8 @@
   }
 
   .rectangle {
-    top: -11.44%;
-    right: -80%;
+    top: -13%;
+    right: -100%;
     width: 132.6%;
     height: 919px;
     transform: rotate(31.99deg);
@@ -186,7 +188,7 @@
   }
 
   .imageWrapper {
-    margin-bottom: 40px;
+    margin-bottom: 36px;
   }
 
   .textWrapper {
@@ -209,7 +211,7 @@
   }
 
   .rectangle {
-    top: -24.13%;
+    top: -23.23%;
     right: -117%;
     width: 104.7%;
     height: 1058px;

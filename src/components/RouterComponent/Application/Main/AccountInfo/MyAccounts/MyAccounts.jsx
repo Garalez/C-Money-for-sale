@@ -8,7 +8,10 @@ export const MyAccounts = ({ account }) => (
     <p className={style.accountNumber}>{account.account}</p>
     <p
       className={style.accountAmount}
-    >{`${account.balance} ${APP_CURRENCY_SIGN}  533 277 ₽`}</p>
+    >{`${account.balance} ${APP_CURRENCY_SIGN}`}</p>
+    <p
+      className={style.accountAmount}
+    >533 277 ₽</p>
     <div className={style.accountInfo}>
       <div className={style.accountInfoTextWrapper}>
         <p className={style.accountInfoText}>открыт</p>

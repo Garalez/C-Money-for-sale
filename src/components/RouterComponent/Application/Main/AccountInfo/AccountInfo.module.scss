@@ -1,5 +1,5 @@
 .accountWrapper {
-  padding: 70px 0 40px 0;
+  padding: 70px 40px 40px 40px;
   max-width: 1180px;
   margin: 0 auto;
 }
@@ -21,6 +21,9 @@
 }
 
 .accountBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 241px;
   height: 49px;
   background: var(--main-gradient);
@@ -92,7 +95,7 @@
 
 .accountItem {
   width: 380px;
-  height: 170px;
+  height: 240px;
   padding-top: 14px;
   padding-left: 18px;
   padding-right: 18px;
@@ -239,4 +242,15 @@
 
 .activeSelect {
   transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .accountTitleWrapper {
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
+
+  .accountBtn {
+    align-self: flex-end;
+  }
 }

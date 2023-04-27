@@ -11,7 +11,9 @@ export const RegistrationSuccess = () => (
           Вы успешно зарегистрировались на платформе 7 Монет!
         </h2>
         <p className={style.registrationSuccessText}>
-          <a href='/application'>Перейти в личный кабинет</a>
+          <a href='/application' className={style.registrationSuccessLink}>
+            Перейти в личный кабинет
+          </a>
         </p>
       </div>
     </div>
