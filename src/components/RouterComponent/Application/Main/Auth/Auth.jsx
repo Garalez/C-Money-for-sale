@@ -1,18 +1,11 @@
 /* eslint-disable max-len */
 import style from './Auth.module.scss';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+// import { useNavigate } from 'react-router-dom';
 
 export const Auth = () => {
-  const isUserLoggedIn = JSON.parse(localStorage.getItem('isUserLoggedIn'));
+  // const navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem('userData'));
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    isUserLoggedIn ? navigate('/application/accounts') : navigate('/application/auth');
-  }, [isUserLoggedIn]);
-
 
   const [userAccountData, setUserAccountData] = useState({
     login: '',
@@ -54,7 +47,7 @@ export const Auth = () => {
       userAccountData.password === userData.password
     ) {
       localStorage.setItem('isUserLoggedIn', true);
-      navigate('/application/accounts');
+      location.reload();
     } else {
       setDisplayErrorMassage(true);
     }
@@ -88,7 +81,7 @@ export const Auth = () => {
                 </label>
                 <input
                   className={style.authInput}
-                  type='text'
+                  type='password'
                   id='password'
                   name='password'
                   onChange={(e) => handleChange(e)}
