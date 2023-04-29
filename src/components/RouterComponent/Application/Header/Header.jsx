@@ -4,7 +4,7 @@ import { ReactComponent as LogoSvg } from '../../../../assets/svg/violetLogo.svg
 import Navigation from './Navigation';
 
 export const Header = () => {
-  const isUserLoggedIn = JSON.parse(localStorage.getItem('isUserLoggedIn'));
+  const isUserLoggedIn = localStorage.getItem('userID');
 
   return (
     <header>

@@ -8,12 +8,12 @@ import { useEffect } from 'react';
 // import CurrencyExchange from './CurrencyExchange';
 
 export const Main = () => {
-  const isUserLoggedIn = JSON.parse(localStorage.getItem('isUserLoggedIn'));
+  const isUserLoggedIn = localStorage.getItem('userID');
   const navigate = useNavigate();
 
   useEffect(() => {
     isUserLoggedIn ? navigate('/application/accounts') : navigate('/application/auth');
-  }, [isUserLoggedIn]);
+  }, []);
 
   return (
     <main>
@@ -28,7 +28,7 @@ export const Main = () => {
             <a href='/' className={style.logoLink}>
               <LogoSvg className={style.logo} /> 7-Monet
             </a>
-            <p className={style.copyrightsMark}>© 7 Monet, 2022</p>
+            <p className={style.copyrightsMark}>© 7 Monet, 2023</p>
           </div>
         </div>
       </div>

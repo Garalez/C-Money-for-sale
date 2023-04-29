@@ -4,7 +4,7 @@ import { ReactComponent as ExitSvg } from '../../../../../assets/svg/exitSvg.svg
 
 export const Navigation = () => {
   const handleLeaveAccount = () => {
-    localStorage.removeItem('isUserLoggedIn');
+    localStorage.removeItem('userID');
     location.reload();
   };
 

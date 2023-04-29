@@ -1,18 +1,25 @@
 /* eslint-disable max-len */
 import style from './Auth.module.scss';
 import { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { userDataRequestAsync } from '../../../../../store/userDataRequest/userDataActions';
+import { Preloader } from '../../../../../UI/Preloader/Preloader';
+import { useEffect } from 'react';
 
 export const Auth = () => {
-  // const navigate = useNavigate();
-  const userData = JSON.parse(localStorage.getItem('userData'));
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.userData);
+
+  useEffect(() => {
+    if (userData.status === 'loaded') {
+      location.reload();
+    }
+  }, [userData.status]);
 
   const [userAccountData, setUserAccountData] = useState({
     login: '',
     password: '',
   });
-
-  const [displayErrorMassage, setDisplayErrorMassage] = useState(false);
 
   // const inputValidation = () => {
   //   setDisplayErrorMassage({
@@ -42,15 +49,7 @@ export const Auth = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      userAccountData.login === userData.login &&
-      userAccountData.password === userData.password
-    ) {
-      localStorage.setItem('isUserLoggedIn', true);
-      location.reload();
-    } else {
-      setDisplayErrorMassage(true);
-    }
+    dispatch(userDataRequestAsync(userAccountData.login, userAccountData.password));
   };
 
   return (
@@ -95,10 +94,14 @@ export const Auth = () => {
               <button className={style.authFormSubmit} type='submit'>
                 Войти
               </button>
-              {displayErrorMassage && (
+              {userData.status === 'loading' ? (
+                  <Preloader color={'white'} />
+              ) : userData.status === 'rejected' ? (
                 <p className={style.authInputError}>
-                  Неверный данные. Попробуйте еще раз
+                  Неверные данные пользователя
                 </p>
+              ) : (
+                <></>
               )}
             </div>
           </form>

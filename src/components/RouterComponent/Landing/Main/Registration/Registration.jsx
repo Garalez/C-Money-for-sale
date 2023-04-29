@@ -5,6 +5,7 @@ import ContactsForm from './ContactsForm';
 import AccountCreationForm from './AccountCreationForm';
 import RegistrationSuccess from './RegistrationSuccess';
 import RegistrationTabs from './RegistrationTabs';
+import { createUser } from '../../../../../utils/createUser';
 
 export const Registration = () => {
   const [activeTab, setActiveTab] = useState({
@@ -64,7 +65,13 @@ export const Registration = () => {
   };
 
   const accountCreationFormSubmit = () => {
-    localStorage.setItem('userData', JSON.stringify(formValues));
+    createUser({
+      firstName: formValues.name,
+      lastName: formValues.surname,
+      login: formValues.login,
+      password: formValues.password,
+      email: formValues.eMail,
+    });
     setIsTabValid({ ...isTabValid, thirdTabIsValid: true });
   };
 

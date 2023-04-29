@@ -1,30 +1,30 @@
 /* eslint-disable max-len */
+// import { userAccountsRequestAsync } from '../../../../../store/accountsRequest/accountsRequestActions';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { userAccountInfoRequestAsync } from '../../../../../store/accountInfoRequest/accountInfoRequestActions';
+import { Preloader } from '../../../../../UI/Preloader/Preloader';
 import style from './AccountInfo.module.scss';
 import MyAccounts from './MyAccounts';
 
 export const AccountInfo = () => {
-  const userData = JSON.parse(localStorage.getItem('userData'));
+  const dispatch = useDispatch();
+  const userId = localStorage.getItem('userID');
+  const userData = useSelector((state) => state.userAccountInfo);
 
-  const userAccounts = [
-    {
-      account: 'Bitcoin',
-      balance: 35,
-      date: new Date(),
-      transactions: [
-        {
-          date: '2021-10-10T00:00:00.000Z',
-          amount: 0.0,
-          currency: 'Bitcoin',
-        },
-      ],
-    },
-  ];
+  useEffect(() => {
+    if (userId) {
+      dispatch(userAccountInfoRequestAsync(userId));
+    }
+  }, []);
 
-  return (
+  return userData.status !== 'loaded' ? (
+    <Preloader color={'white'} />
+  ) : (
     <section className={style.account}>
       <div className={style.accountWrapper}>
         <div className={style.accountTitleWrapper}>
-          <h1 className={style.accountTitle}>Здравствуйте, {userData.name}!</h1>
+          <h1 className={style.accountTitle}>Здравствуйте, {userData.accountInfo.name}!</h1>
           <a
             href='https://my.qiwi.com/Tatiana-BDWWHiMYMA'
             target='_blank'
@@ -38,9 +38,7 @@ export const AccountInfo = () => {
           <p className={style.accountSubtitle}>Мои счета</p>
         </div>
         <ul className={style.accountList}>
-          {userAccounts.map((account) => (
-            <MyAccounts key={account.account} account={account} />
-          ))}
+          <MyAccounts account={userData.accountInfo} />
         </ul>
       </div>
     </section>
