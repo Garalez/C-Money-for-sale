@@ -1,0 +1,85 @@
+.userForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.userFormTitle {
+  color: var(--white);
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.userFormLabelsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.userFormAccount {
+  padding-left: 10px;
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
+.userFormInput {
+  width: 260px;
+  height: 50px;
+  padding-left: 18px;
+  background: var(--white);
+  font-size: 27px;
+  border: 2px solid var(--inactive-input-border);
+  border-radius: 10px;
+  caret-color: var(--purple);
+}
+
+.userFormInput:focus {
+  outline: none;
+  border: 2px solid var(--pink);
+}
+
+.userFormSubmitBtn {
+  width: 260px;
+  height: 50px;
+  align-self: flex-end;
+  background: var(--main-gradient);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+}
+
+.userFormSubmitBtn:hover {
+  background: var(--main-gradient-hover);
+}
+
+.userFormSubmitBtn:focus {
+  background: var(--main-gradient-focus);
+}
+
+.userFormItem {
+  position: relative;
+}
+
+.userFormItem:not(:last-child)::after {
+  position: absolute;
+  content: '';
+  bottom: -15px;
+  width: 100%;
+  height: 2px;
+  background: var(--purple);
+}
+
+@media(max-width: 860px) {
+  .userFormLabelsWrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

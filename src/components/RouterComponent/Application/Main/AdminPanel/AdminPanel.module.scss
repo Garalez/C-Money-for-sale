@@ -1,0 +1,23 @@
+.admin {
+  padding: 40px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.adminTitle {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.userList {
+  padding: 25px 15px;
+  background: var(--app-light-purple);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}

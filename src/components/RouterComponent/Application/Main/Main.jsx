@@ -1,18 +1,20 @@
 /* eslint-disable max-len */
 import style from './Main.module.scss';
+import { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { ReactComponent as LogoSvg } from '../../../../assets/svg/violetLogo.svg';
 import Auth from './Auth';
 import AccountInfo from './AccountInfo';
-import { useEffect } from 'react';
-// import CurrencyExchange from './CurrencyExchange';
+import AdminPanel from './AdminPanel';
 
 export const Main = () => {
   const isUserLoggedIn = localStorage.getItem('userID');
   const navigate = useNavigate();
 
   useEffect(() => {
-    isUserLoggedIn ? navigate('/application/accounts') : navigate('/application/auth');
+    if (!isUserLoggedIn) navigate('/application/auth');
+    if (isUserLoggedIn && isUserLoggedIn === '00001') navigate('/application/adminPanel');
+    if (isUserLoggedIn && isUserLoggedIn !== '00001') navigate('/application/accounts');
   }, []);
 
   return (
@@ -21,7 +23,7 @@ export const Main = () => {
         <Routes>
           <Route path='/auth' element={<Auth />} />
           <Route path='/accounts' element={<AccountInfo />} />
-          {/* <Route path='/exchange' element={<CurrencyExchange />} /> */}
+          <Route path='/adminPanel' element={<AdminPanel />} />
         </Routes>
         <div className={style.footer}>
           <div className={style.copyrightsWrapper}>

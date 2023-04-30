@@ -19,6 +19,10 @@ export const userDataRequestError = (error) => ({
 });
 
 export const userDataRequestAsync = (login, password) => (dispatch) => {
+  const userID = localStorage.getItem('userID');
+
+  if (userID) return;
+
   dispatch(userDataRequest());
 
   fetch(`${URL_API}/user`, {
@@ -26,14 +30,17 @@ export const userDataRequestAsync = (login, password) => (dispatch) => {
   })
     .then((response) => response.json())
     .then((data) => {
+      let userExists = false;
+
       data.map((user) => {
         if (user.login === login && user.password === password) {
           dispatch(userDataRequestSuccess(user));
           localStorage.setItem('userID', user.id);
-        } else {
-          dispatch(userDataRequestError('Usuário ou senha inválidos'));
+          userExists = true;
         }
       });
+
+      if (!userExists) dispatch(userDataRequestError('User not found'));
     })
     .catch((error) => dispatch(userDataRequestError(error)));
 };

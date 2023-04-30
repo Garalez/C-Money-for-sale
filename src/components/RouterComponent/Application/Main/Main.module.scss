@@ -7,8 +7,12 @@
 }
 
 .footer {
+  position: relative;
+  bottom: 0;
+  width: 100vw;
   display: flex;
   justify-content: center;
+  background: var(--purple);
 }
 
 .copyrightsWrapper {
@@ -18,7 +22,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--purple);
   justify-self: flex-end;
 }
 
@@ -42,4 +45,15 @@
   font-weight: 600;
   font-size: 22px;
   line-height: 30px;
+}
+
+@media(max-width: 375px) {
+  .copyrightsWrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .copyrightsMark {
+    align-self: center;
+  }
 }
