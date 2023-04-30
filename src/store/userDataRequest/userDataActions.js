@@ -25,8 +25,12 @@ export const userDataRequestAsync = (login, password) => (dispatch) => {
   })
     .then((response) => response.json())
     .then((userId) => {
-      dispatch(userDataRequestSuccess());
-      localStorage.setItem('userID', userId);
+      if (userId) {
+        dispatch(userDataRequestSuccess());
+        localStorage.setItem('userID', userId);
+      } else {
+        dispatch(userDataRequestError('Неверный логин или пароль'));
+      }
     })
     .catch((error) => dispatch(userDataRequestError(error)));
 };

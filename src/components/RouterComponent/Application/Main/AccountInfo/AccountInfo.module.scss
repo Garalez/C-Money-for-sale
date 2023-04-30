@@ -5,13 +5,14 @@
 }
 
 .accountTitleWrapper {
-  margin-bottom: 64px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
 }
 
 .accountTitle {
   padding-top: 10px;
+  text-transform: capitalize;
   font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 700;
@@ -20,7 +21,8 @@
   color: var(--white);
 }
 
-.accountBtn {
+.accountBtn,
+.withdrawCashbtn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,32 +39,20 @@
   color: var(--white);
 }
 
-.accountBtn:hover {
+.accountBtn:hover,
+.withdrawCashbtn:hover {
   cursor: url('../../../../../assets/svg/customHoverCursor.svg'), pointer;
   background: var(--button-hover-gradient);
 }
 
-.accountBtn:focus {
+.accountBtn:focus,
+.withdrawCashbtn:focus {
   background: var(--button-focus-gradient);
 }
 
-.accountBtn:active {
+.accountBtn:active,
+.withdrawCashbtn:active {
   background: var(--blue);
-}
-
-.accountInfoWrapper {
-  margin-bottom: 14px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.accountSubtitle {
-  font-family: 'Comfortaa';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 29px;
-  color: var(--white);
 }
 
 .accountSortText {
@@ -244,13 +234,78 @@
   transform: rotate(180deg);
 }
 
+.btnWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accountInfoTitle {
+  margin-bottom: 20px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+  color: var(--white);
+}
+
 @media (max-width: 768px) {
+  .accountWrapper {
+    padding: 50px 40px 40px 40px;
+  }
+
   .accountTitleWrapper {
     flex-direction: column-reverse;
+    align-items: center;
+    margin-bottom: 35px;
     gap: 15px;
   }
 
-  .accountBtn {
-    align-self: center;
+  .accountTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .btnWrapper {
+    align-items: center;
+  }
+
+  .accountSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .accountInfoTitle {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 440px) {
+  .accountTitle {
+    font-size: 30px;
+  }
+
+  .accountInfoTitle {
+    font-size: 25px;
+  }
+
+  .accountItem {
+    width: 300px;
+    height: 220px;
+  }
+
+  .accountAmount {
+    font-size: 28px;
+    margin-bottom: 13px;
+    line-height: 40px;
+  }
+
+  .accountNumber {
+    margin-bottom: 7px;
   }
 }

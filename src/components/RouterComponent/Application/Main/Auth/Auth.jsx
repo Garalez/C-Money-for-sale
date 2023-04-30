@@ -9,7 +9,6 @@ import { useEffect } from 'react';
 export const Auth = () => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.userData);
-  console.log('userData: ', userData);
 
   useEffect(() => {
     if (userData.status === 'loaded') {

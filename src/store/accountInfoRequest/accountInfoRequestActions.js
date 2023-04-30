@@ -2,8 +2,10 @@
 import { URL_API } from '../../utils/api';
 
 export const USER_ACCOUNT_INFO_REQUEST = 'USER_ACCOUNT_INFO_REQUEST';
-export const USER_ACCOUNT_INFO_REQUEST_SUCCESS = 'USER_ACCOUNT_INFO_REQUEST_SUCCESS';
-export const USER_ACCOUNT_INFO_REQUEST_ERROR = 'USER_ACCOUNT_INFO_REQUEST_ERROR';
+export const USER_ACCOUNT_INFO_REQUEST_SUCCESS =
+  'USER_ACCOUNT_INFO_REQUEST_SUCCESS';
+export const USER_ACCOUNT_INFO_REQUEST_ERROR =
+  'USER_ACCOUNT_INFO_REQUEST_ERROR';
 
 export const userAccountInfoRequest = () => ({
   type: USER_ACCOUNT_INFO_REQUEST,
@@ -27,7 +29,12 @@ export const userAccountInfoRequestAsync = (id) => (dispatch) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      dispatch(userAccountInfoRequestSuccess(data));
+      if (data) {
+        dispatch(userAccountInfoRequestSuccess(data));
+      } else {
+        localStorage.removeItem('userID');
+        dispatch(userAccountInfoRequestError('Неверный логин или пароль'));
+      }
     })
     .catch((error) => dispatch(userAccountInfoRequestError(error)));
 };

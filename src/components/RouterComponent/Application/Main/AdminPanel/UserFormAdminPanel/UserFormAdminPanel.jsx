@@ -11,8 +11,12 @@ export const UserFormAdminPanel = ({ user }) => {
   const isUserUpdated = useSelector((state) => state.userInfoUpdate);
 
   useEffect(() => {
-    if (isUserUpdated.status === 'loaded') location.reload();
+    if (isUserUpdated.status === 'loaded') {
+      location.reload();
+    }
   }, [isUserUpdated.status]);
+
+  const [isButtonActive, setIsButtonActive] = useState(true);
 
   const [userCurrency, setUserCurrency] = useState({
     rub: user.rub,
@@ -21,10 +25,9 @@ export const UserFormAdminPanel = ({ user }) => {
 
   const inputControl = (e) => {
     const { name, value } = e.target;
-    const regexDigitsAndMinus = /[^-\d]/;
-    const inputValue = value.replace(regexDigitsAndMinus, '');
 
-    setUserCurrency({ ...userCurrency, [name]: inputValue });
+    setUserCurrency({ ...userCurrency, [name]: value });
+    if (isButtonActive) setIsButtonActive(false);
   };
 
   const formSubmit = (e) => {
@@ -54,7 +57,7 @@ export const UserFormAdminPanel = ({ user }) => {
             <input
               className={style.userFormInput}
               name='rub'
-              type='text'
+              type='number'
               value={userCurrency.rub}
               onChange={(e) => inputControl(e)}
             />
@@ -65,12 +68,12 @@ export const UserFormAdminPanel = ({ user }) => {
             <input
               className={style.userFormInput}
               name='bit'
-              type='text'
+              type='number'
               value={userCurrency.bit}
               onChange={(e) => inputControl(e)}
             />
           </label>
-          <button className={style.userFormSubmitBtn} type='submit'>
+          <button className={style.userFormSubmitBtn} type='submit' disabled={isButtonActive}>
             Сохранить
           </button>
         </div>

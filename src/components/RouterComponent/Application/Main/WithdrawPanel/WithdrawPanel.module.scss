@@ -1,0 +1,61 @@
+.withdraw {
+
+}
+
+.withdrawTitle {
+
+}
+
+.withdrawForm {
+
+}
+
+.withdrawList {
+
+}
+
+.withdrawItem {
+
+}
+
+.withdrawLabel {
+
+}
+
+.withdrawSubtitle {
+
+}
+
+.withdrawInput {
+
+}
+
+.withdrawBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 241px;
+  height: 49px;
+  background: var(--main-gradient);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+}
+
+.withdrawBtn:hover {
+  cursor: url('../../../../../assets/svg/customHoverCursor.svg'), pointer;
+  background: var(--button-hover-gradient);
+}
+
+.withdrawBtn:focus {
+  background: var(--button-focus-gradient);
+}
+
+.withdrawBtn:active {
+  background: var(--blue);
+}

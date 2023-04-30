@@ -1,13 +1,16 @@
 /* eslint-disable max-len */
 import style from './Main.module.scss';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { ReactComponent as LogoSvg } from '../../../../assets/svg/violetLogo.svg';
 import Auth from './Auth';
 import AccountInfo from './AccountInfo';
 import AdminPanel from './AdminPanel';
+import WithdrawPanel from './WithdrawPanel';
 
 export const Main = () => {
+  const userData = useSelector((state) => state.userAccountInfo);
   const isUserLoggedIn = localStorage.getItem('userID');
   const navigate = useNavigate();
 
@@ -19,7 +22,7 @@ export const Main = () => {
     if (isUserLoggedIn && isUserLoggedIn !== '00001') {
       navigate('/application/accounts');
     }
-  }, []);
+  }, [userData.status]);
 
   return (
     <main>
@@ -29,6 +32,7 @@ export const Main = () => {
             <Route path='/auth' element={<Auth />} />
             <Route path='/accounts' element={<AccountInfo />} />
             <Route path='/adminPanel' element={<AdminPanel />} />
+            <Route path='/withdraw' element={<WithdrawPanel />} />
           </Routes>
         </div>
         <div className={style.footer}>

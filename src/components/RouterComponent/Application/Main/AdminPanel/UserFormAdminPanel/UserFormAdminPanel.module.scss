@@ -36,6 +36,12 @@
   caret-color: var(--purple);
 }
 
+.userFormInput::-webkit-outer-spin-button,
+.userFormInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .userFormInput:focus {
   outline: none;
   border: 2px solid var(--pink);
@@ -62,6 +68,10 @@
 
 .userFormSubmitBtn:focus {
   background: var(--main-gradient-focus);
+}
+
+.userFormSubmitBtn:disabled {
+  background: var(--grey);
 }
 
 .userFormItem {
