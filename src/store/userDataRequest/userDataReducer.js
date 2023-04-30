@@ -6,7 +6,6 @@ import {
 
 const initialState = {
   status: '',
-  accounts: [],
   error: '',
 };
 
@@ -22,7 +21,6 @@ export const userDataReducer = (state = initialState, action) => {
       return {
         ...state,
         status: 'loaded',
-        accounts: action.data,
         error: '',
       };
     case USER_DATA_REQUEST_ERROR:

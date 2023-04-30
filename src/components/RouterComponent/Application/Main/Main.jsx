@@ -13,8 +13,12 @@ export const Main = () => {
 
   useEffect(() => {
     if (!isUserLoggedIn) navigate('/application/auth');
-    if (isUserLoggedIn && isUserLoggedIn === '00001') navigate('/application/adminPanel');
-    if (isUserLoggedIn && isUserLoggedIn !== '00001') navigate('/application/accounts');
+    if (isUserLoggedIn && isUserLoggedIn === '00001') {
+      navigate('/application/adminPanel');
+    }
+    if (isUserLoggedIn && isUserLoggedIn !== '00001') {
+      navigate('/application/accounts');
+    }
   }, []);
 
   return (

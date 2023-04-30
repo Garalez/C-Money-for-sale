@@ -22,13 +22,6 @@ export const Auth = () => {
     password: '',
   });
 
-  // const inputValidation = () => {
-  //   setDisplayErrorMassage({
-  //     login: !!(userAccountData.login && userAccountData.login !== userData.login),
-  //     password: !!(userAccountData.password && userAccountData.password !== userData.password),
-  //   });
-  // };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     const regexNonWord = /[^a-zA-Z0-9]/;
@@ -37,14 +30,6 @@ export const Auth = () => {
       ...userAccountData,
       [name]: value.replace(regexNonWord, ''),
     });
-
-    // if (e.target.name === 'login' && value === userData.login) {
-    //   setDisplayErrorMassage({ ...displayErrorMassage, login: false });
-    // }
-
-    // if (e.target.name === 'password' && value === userData.password) {
-    //   setDisplayErrorMassage({ ...displayErrorMassage, password: false });
-    // }
   };
 
   const handleFormSubmit = (e) => {
