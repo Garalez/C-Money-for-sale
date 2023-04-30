@@ -20,11 +20,13 @@ export const Main = () => {
   return (
     <main>
       <div className={style.mainWrapper}>
-        <Routes>
-          <Route path='/auth' element={<Auth />} />
-          <Route path='/accounts' element={<AccountInfo />} />
-          <Route path='/adminPanel' element={<AdminPanel />} />
-        </Routes>
+        <div className={style.routeWrapper}>
+          <Routes>
+            <Route path='/auth' element={<Auth />} />
+            <Route path='/accounts' element={<AccountInfo />} />
+            <Route path='/adminPanel' element={<AdminPanel />} />
+          </Routes>
+        </div>
         <div className={style.footer}>
           <div className={style.copyrightsWrapper}>
             <a href='/' className={style.logoLink}>

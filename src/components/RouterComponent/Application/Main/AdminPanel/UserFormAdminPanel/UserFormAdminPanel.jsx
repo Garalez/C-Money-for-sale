@@ -1,9 +1,19 @@
+/* eslint-disable max-len */
 import style from './UserFormAdminPanel.module.scss';
-import { useState } from 'react';
+import { userInfoUpdateRequestAsync } from '../../../../../../store/userInfoUpdateRequest/userInfoUpdateRequestActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import Preloader from '../../../../../../UI/Preloader';
 import PropTypes from 'prop-types';
-import { updateUserInfo } from '../../../../../../utils/updateUserInfo';
 
 export const UserFormAdminPanel = ({ user }) => {
+  const dispatch = useDispatch();
+  const isUserUpdated = useSelector((state) => state.userInfoUpdate);
+
+  useEffect(() => {
+    if (isUserUpdated.status === 'loaded') location.reload();
+  }, [isUserUpdated.status]);
+
   const [userCurrency, setUserCurrency] = useState({
     rub: user.rub,
     bit: user.bit,
@@ -11,21 +21,28 @@ export const UserFormAdminPanel = ({ user }) => {
 
   const inputControl = (e) => {
     const { name, value } = e.target;
-    setUserCurrency({ ...userCurrency, [name]: value });
+    const regexDigitsAndMinus = /[^-\d]/;
+    const inputValue = value.replace(regexDigitsAndMinus, '');
+
+    setUserCurrency({ ...userCurrency, [name]: inputValue });
   };
 
   const formSubmit = (e) => {
     e.preventDefault();
 
-    updateUserInfo({
-      id: user.id,
-      rub: +userCurrency.rub,
-      bit: +userCurrency.bit,
-      lastTransaction: new Date(),
-    });
+    dispatch(
+      userInfoUpdateRequestAsync({
+        id: user.id,
+        rub: +userCurrency.rub,
+        bit: +userCurrency.bit,
+        lastTransaction: new Date(),
+      })
+    );
   };
 
-  return (
+  return isUserUpdated.status !== '' ? (
+    <Preloader color={'white'} />
+  ) : (
     <li className={style.userFormItem}>
       <form className={style.userForm} onSubmit={(e) => formSubmit(e)}>
         <h2
