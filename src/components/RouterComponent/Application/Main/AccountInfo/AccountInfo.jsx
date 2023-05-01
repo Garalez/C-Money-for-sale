@@ -46,7 +46,7 @@ export const AccountInfo = () => {
             </button>
           </div>
         </div>
-        <MyAccounts account={userData.accountInfo} />
+        {userData.accountInfo.transactions && <MyAccounts account={userData.accountInfo} />}
       </div>
     </section>
   );

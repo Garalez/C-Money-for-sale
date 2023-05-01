@@ -1,18 +1,18 @@
 /* eslint-disable max-len */
 import style from './WithdrawPanel.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ModalWindow } from '../../../../../UI/ModalWindow/ModalWindow';
 import { userInfoUpdateRequestAsync } from '../../../../../store/userInfoUpdateRequest/userInfoUpdateRequestActions';
 import PropTypes from 'prop-types';
 import Preloader from '../../../../../UI/Preloader';
-import { useEffect } from 'react';
 
 export const WithdrawPanel = ({ userData }) => {
   const dispatch = useDispatch();
   const isUserUpdated = useSelector((state) => state.userInfoUpdate);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [displayError, setDisplayError] = useState(false);
+  const [isSumCorrect, setIsSumCorrect] = useState(true);
   const [inputValues, setInputValues] = useState({
     card: '',
     rub: '',
@@ -41,7 +41,16 @@ export const WithdrawPanel = ({ userData }) => {
       userInfoUpdateRequestAsync({
         id: userData.id,
         rub: userData.rub - +inputValues.rub,
-        lastTransaction: new Date(),
+        transactions: [
+          ...userData.transactions,
+          {
+            date: new Date(),
+            rub: userData.rub - +inputValues.rub,
+            rubDiff: -inputValues.rub,
+            bit: userData.bit,
+            bitDiff: 0,
+          },
+        ],
       })
     );
   };
@@ -50,9 +59,12 @@ export const WithdrawPanel = ({ userData }) => {
     e.preventDefault();
 
     if (userData.rub - +inputValues.rub < 0) {
-      return setDisplayError(true);
+      return [setDisplayError(true), setIsSumCorrect(true)];
+    } else if (+inputValues.rub <= 0) {
+      return [setIsSumCorrect(false), setDisplayError(false)];
     } else {
       setDisplayError(false);
+      setIsSumCorrect(true);
       setIsModalOpen(true);
     }
   };
@@ -114,10 +126,7 @@ export const WithdrawPanel = ({ userData }) => {
                   </label>
                 </li>
                 <li className={style.withdrawItem}>
-                  <button
-                    className={style.withdrawBtn}
-                    type='submit'
-                  >
+                  <button className={style.withdrawBtn} type='submit'>
                     Вывести
                   </button>
                 </li>
@@ -126,6 +135,11 @@ export const WithdrawPanel = ({ userData }) => {
             {displayError && (
               <div>
                 <p className={style.withdrawError}>Недостаточно средств</p>
+              </div>
+            )}
+            {!isSumCorrect && (
+              <div>
+                <p className={style.withdrawError}>Неверно введена сумма</p>
               </div>
             )}
           </section>

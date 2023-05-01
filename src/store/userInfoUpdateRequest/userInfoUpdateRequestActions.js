@@ -18,7 +18,7 @@ export const userInfoUpdateRequestError = (error) => ({
   error,
 });
 
-export const userInfoUpdateRequestAsync = ({ id, rub, bit, lastTransaction }) => (dispatch) => {
+export const userInfoUpdateRequestAsync = ({ id, rub, bit, transactions }) => (dispatch) => {
   dispatch(userInfoUpdateRequest());
 
   fetch(`${URL_API}/user/${id}`, {
@@ -29,7 +29,7 @@ export const userInfoUpdateRequestAsync = ({ id, rub, bit, lastTransaction }) =>
     body: JSON.stringify({
       rub,
       bit,
-      lastTransaction,
+      transactions,
     }),
   })
     .then((response) => response.json())

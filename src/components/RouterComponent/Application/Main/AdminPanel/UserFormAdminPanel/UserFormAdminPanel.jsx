@@ -23,7 +23,8 @@ export const UserFormAdminPanel = ({ user }) => {
     }
   }, [isUserUpdated.status]);
 
-  const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+  const capitalize = (string) =>
+    string.charAt(0).toUpperCase() + string.slice(1);
 
   const inputControl = (e) => {
     const { name, value } = e.target;
@@ -38,7 +39,16 @@ export const UserFormAdminPanel = ({ user }) => {
         id: user.id,
         rub: +userCurrency.rub,
         bit: +userCurrency.bit,
-        lastTransaction: new Date(),
+        transactions: [
+          ...user.transactions,
+          {
+            date: new Date(),
+            rub: +userCurrency.rub,
+            rubDiff: +userCurrency.rub - user.rub,
+            bit: +userCurrency.bit,
+            bitDiff: +userCurrency.bit - user.bit,
+          },
+        ],
       })
     );
   };
@@ -59,11 +69,19 @@ export const UserFormAdminPanel = ({ user }) => {
             <ModalWindow
               content={
                 <>
-                  <span className={style.contentSpan}>Изменить пользователю</span>
-                  <span className={style.contentSpan}>{`${capitalize(user.name)} ${capitalize(user.lastName)}`}</span>
+                  <span className={style.contentSpan}>
+                    Изменить пользователю
+                  </span>
+                  <span className={style.contentSpan}>{`${capitalize(
+                    user.name
+                  )} ${capitalize(user.lastName)}`}</span>
                   <span className={style.contentSpan}>счета на</span>
-                  <span className={style.contentSpan}>{`Рублёвый: ${userCurrency.rub} ₽`}</span>
-                  <span className={style.contentSpan}>{`Bitcoin: ${userCurrency.bit} ₿`}</span>
+                  <span
+                    className={style.contentSpan}
+                  >{`Рублёвый: ${userCurrency.rub} ₽`}</span>
+                  <span
+                    className={style.contentSpan}
+                  >{`Bitcoin: ${userCurrency.bit} ₿`}</span>
                 </>
               }
               modalConfirmAction={modalAnswerConfirm}
