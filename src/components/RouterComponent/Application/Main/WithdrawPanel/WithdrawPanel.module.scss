@@ -23,6 +23,10 @@
   align-items: flex-end;
 }
 
+.withdrawForm {
+  margin-bottom: 40px;
+}
+
 .withdrawItem:not(:last-child) {
   margin-right: 20px;
 }
@@ -36,7 +40,7 @@
 }
 
 .withdrawInput {
-  width: 260px;
+  width: 280px;
   height: 50px;
   padding-left: 18px;
   background: var(--white);
@@ -46,17 +50,23 @@
   caret-color: var(--purple);
 }
 
+.withdrawInput::-webkit-outer-spin-button,
+.withdrawInput::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .withdrawInput:focus {
   outline: none;
   border: 2px solid var(--pink);
 }
 
-
 .withdrawBtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 260px;
+  width: 280px;
   height: 50px;
   background: var(--main-gradient);
   border: none;
@@ -82,7 +92,23 @@
   background: var(--blue);
 }
 
-@media(max-width: 840px) {
+.withdrawBtn:disabled {
+  background: var(--grey);
+  cursor: not-allowed;
+}
+
+.contentSpan:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.withdrawError {
+  color: red;
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+@media(max-width: 920px) {
   .withdrawList {
     flex-direction: column;
     justify-content: center;
@@ -91,6 +117,12 @@
 
   .withdrawItem:not(:last-child) {
     margin: 0 0 20px 0;
+  }
+}
+
+@media(max-width: 520px) {
+  .contentSpan:not(:last-child) {
+    margin-bottom: 5px;
   }
 }
 

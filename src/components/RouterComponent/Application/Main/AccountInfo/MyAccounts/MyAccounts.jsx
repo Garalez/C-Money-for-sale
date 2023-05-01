@@ -1,10 +1,10 @@
 import style from '../AccountInfo.module.scss';
 import PropTypes from 'prop-types';
+import { APP_CURRENCY_SIGN } from '../../../../../../utils/appCurrencySign';
 import {
   formatDateToNumericForCreation,
   formatDateToNumericForTransaction,
 } from '../../../../../../utils/formatDate';
-import { APP_CURRENCY_SIGN } from '../../../../../../utils/appCurrencySign';
 
 export const MyAccounts = ({ account }) => (
   <section className={style.accountSection}>

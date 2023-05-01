@@ -73,6 +73,7 @@
 
 .userFormSubmitBtn:disabled {
   background: var(--grey);
+  cursor: not-allowed;
 }
 
 .userFormItem {
@@ -88,9 +89,19 @@
   background: var(--purple);
 }
 
+.contentSpan:not(:last-child) {
+  margin-bottom: 10px;
+}
+
 @media(max-width: 860px) {
   .userFormLabelsWrapper {
     flex-direction: column;
     gap: 20px;
+  }
+}
+
+@media(max-width: 520px) {
+  .contentSpan:not(:last-child) {
+    margin-bottom: 5px;
   }
 }

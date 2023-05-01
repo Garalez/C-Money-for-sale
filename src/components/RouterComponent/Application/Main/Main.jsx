@@ -32,7 +32,7 @@ export const Main = () => {
             <Route path='/auth' element={<Auth />} />
             <Route path='/accounts' element={<AccountInfo />} />
             <Route path='/adminPanel' element={<AdminPanel />} />
-            <Route path='/withdraw' element={<WithdrawPanel />} />
+            <Route path='/withdraw' element={<WithdrawPanel userData={userData.accountInfo} />} />
           </Routes>
         </div>
         <div className={style.footer}>

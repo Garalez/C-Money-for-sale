@@ -29,7 +29,7 @@
 .registrationSuccessLink:disabled {
   background: var(--grey);
   color: var(--white);
-  cursor: initial;
+  cursor: not-allowed;
 }
 
 .registrationSuccess {

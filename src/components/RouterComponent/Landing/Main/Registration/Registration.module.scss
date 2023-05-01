@@ -137,7 +137,7 @@
 
 .nextBtn:disabled {
   background: var(--grey);
-  cursor: initial;
+  cursor: not-allowed;
 }
 
 .registrationAgreementWrapper {
