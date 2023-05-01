@@ -24,26 +24,20 @@ export const UserInfoTable = ({ account }) => {
               </tr>
             </thead>
             <tbody>
-              {transactions.map((item, index) => {
-                if (item.rubDiff) {
-                  return (
-                    <tr key={index} className={style.historyTableRow}>
-                      <td className={style.historyTableCell}>
-                        {formatDateToNumericForTransaction(item.date)}
-                      </td>
-                      <td className={style.historyTableCell}>
-                        <p
-                          className={
-                            item.rubDiff < 0 ? style.expenses : undefined
-                          }
-                        >
-                          {item.rubDiff}
-                        </p>
-                      </td>
-                    </tr>
-                  );
-                }
-              })}
+              {transactions.map((item, index) => (
+                <tr key={index} className={style.historyTableRow}>
+                  <td className={style.historyTableCell}>
+                    {formatDateToNumericForTransaction(item.date)}
+                  </td>
+                  <td className={style.historyTableCell}>
+                    <p
+                      className={item.rubDiff < 0 ? style.expenses : undefined}
+                    >
+                      {item.rubDiff}
+                    </p>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

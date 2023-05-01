@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.32ce92f4.css",
-    "main.js": "/static/js/main.c575deb1.js",
+    "main.css": "/static/css/main.6d5150d3.css",
+    "main.js": "/static/js/main.fc056330.js",
     "static/media/transferLogo1280.png": "/static/media/transferLogo1280.9c155abe0017c26acc04.png",
     "static/media/Nunito-Regular.ttf": "/static/media/Nunito-Regular.99a3b019e7727ac19479.ttf",
     "static/media/Nunito-SemiBold.ttf": "/static/media/Nunito-SemiBold.77c1e330694154d3efed.ttf",
@@ -35,11 +35,11 @@
     "static/media/burgerMenu.svg": "/static/media/burgerMenu.f6d9fed14acaedcb39a075e9ec002172.svg",
     "static/media/registrationSuccessCheckmark.svg": "/static/media/registrationSuccessCheckmark.ec31299a7c32246052fae338199f93cb.svg",
     "static/media/customCheckboxMark.svg": "/static/media/customCheckboxMark.0411e24a88f81fb07f9e.svg",
-    "main.32ce92f4.css.map": "/static/css/main.32ce92f4.css.map",
-    "main.c575deb1.js.map": "/static/js/main.c575deb1.js.map"
+    "main.6d5150d3.css.map": "/static/css/main.6d5150d3.css.map",
+    "main.fc056330.js.map": "/static/js/main.fc056330.js.map"
   },
   "entrypoints": [
-    "static/css/main.32ce92f4.css",
-    "static/js/main.c575deb1.js"
+    "static/css/main.6d5150d3.css",
+    "static/js/main.fc056330.js"
   ]
 }
