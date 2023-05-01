@@ -38,6 +38,7 @@
 
 .userFormInput::-webkit-outer-spin-button,
 .userFormInput::-webkit-inner-spin-button {
+  appearance: none;
   -webkit-appearance: none;
   margin: 0;
 }

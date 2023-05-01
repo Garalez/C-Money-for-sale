@@ -23,11 +23,10 @@ export const Auth = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const regexNonWord = /[^a-zA-Z0-9]/;
 
     setUserAccountData({
       ...userAccountData,
-      [name]: value.replace(regexNonWord, ''),
+      [name]: value,
     });
   };
 

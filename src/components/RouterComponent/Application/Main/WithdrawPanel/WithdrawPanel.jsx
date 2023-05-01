@@ -1,11 +1,14 @@
 import style from './WithdrawPanel.module.scss';
 
 export const WithdrawPanel = () => {
-  console.log('style');
+  const handleSubmit = () => {
+    console.log('submit');
+  };
+
   return (
     <section className={style.withdraw}>
       <h2 className={style.withdrawTitle}>Вывод средств</h2>
-      <form className={style.withdrawForm}>
+      <form className={style.withdrawForm} onSubmit={() => handleSubmit()}>
         <ul className={style.withdrawList}>
           <li className={style.withdrawItem}>
             <label className={style.withdrawLabel}>
@@ -15,7 +18,7 @@ export const WithdrawPanel = () => {
           </li>
           <li className={style.withdrawItem}>
             <label className={style.withdrawLabel}>
-              <p className={style.withdrawSubtitle}>Сумма рублей</p>
+              <p className={style.withdrawSubtitle}>Сумма рублей:</p>
               <input className={style.withdrawInput} type='text' />
             </label>
           </li>

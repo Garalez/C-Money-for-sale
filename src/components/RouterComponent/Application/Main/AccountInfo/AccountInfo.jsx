@@ -1,14 +1,14 @@
 /* eslint-disable max-len */
+import style from './AccountInfo.module.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { userAccountInfoRequestAsync } from '../../../../../store/accountInfoRequest/accountInfoRequestActions';
 import { Preloader } from '../../../../../UI/Preloader/Preloader';
-import style from './AccountInfo.module.scss';
 import MyAccounts from './MyAccounts';
 
 export const AccountInfo = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const userId = localStorage.getItem('userID');
   const userData = useSelector((state) => state.userAccountInfo);
@@ -38,12 +38,12 @@ export const AccountInfo = () => {
             >
               Пополнить счёт
             </a>
-            {/* <button
+            <button
               className={style.withdrawCashbtn}
               onClick={() => navigate('/application/withdraw')}
             >
               Вывести средства
-            </button> */}
+            </button>
           </div>
         </div>
         <MyAccounts account={userData.accountInfo} />
