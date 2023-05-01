@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { userAccountInfoRequestAsync } from '../../../../../store/accountInfoRequest/accountInfoRequestActions';
 import { Preloader } from '../../../../../UI/Preloader/Preloader';
 import MyAccounts from './MyAccounts';
+import { UserInfoTable } from './UserInfoTable/UserInfoTable';
 
 export const AccountInfo = () => {
   const navigate = useNavigate();
@@ -46,7 +47,12 @@ export const AccountInfo = () => {
             </button>
           </div>
         </div>
-        {userData.accountInfo.transactions && <MyAccounts account={userData.accountInfo} />}
+        {userData.accountInfo.transactions && (
+          <div className={style.userInfoGraphic}>
+            <MyAccounts account={userData.accountInfo} />
+            <UserInfoTable account={userData.accountInfo} />
+          </div>
+        )}
       </div>
     </section>
   );

@@ -5,7 +5,7 @@
 }
 
 .accountTitleWrapper {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   display: flex;
   justify-content: space-between;
 }
@@ -250,6 +250,31 @@
   color: var(--white);
 }
 
+.userInfoGraphic {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 870px) {
+  .accountTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .userInfoGraphic {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .accountSection {
+    margin-bottom: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .accountWrapper {
     padding: 50px 40px 40px 40px;
@@ -260,13 +285,6 @@
     align-items: center;
     margin-bottom: 35px;
     gap: 15px;
-  }
-
-  .accountTitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
   }
 
   .btnWrapper {
