@@ -11,7 +11,8 @@ export const Header = () => {
       <div className={style.headerWrapper}>
         <div className={style.contentWrapper}>
           <a href='/' className={style.logoLink}>
-            <LogoSvg className={style.logo} /> 7-Monet
+            <LogoSvg className={style.logo} />
+            <span className={style.logoName}>7-Monet</span>
           </a>
           {isUserLoggedIn ? <Navigation /> : <></>}
         </div>

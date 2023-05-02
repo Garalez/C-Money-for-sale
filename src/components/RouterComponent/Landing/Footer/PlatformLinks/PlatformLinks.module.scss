@@ -1,9 +1,12 @@
 .linksList {
   display: flex;
   flex-direction: column;
-  gap: 14px;
   padding-top: 8px;
   margin-right: 4.85vw;
+}
+
+.linksItem:not(:last-child) {
+  margin-bottom: 14px;
 }
 
 .link {
@@ -27,14 +30,22 @@
 
 @media (max-width: 1024px) {
   .linksList {
-    margin-right: 2.9vw;
+    margin-right: 0;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .linksList {
+    width: 253px;
+    margin-right: 0;
     white-space: nowrap;
   }
 }
 
 @media (max-width: 320px) {
-  .linksList {
-    gap: 2px;
+  .linksItem:not(:last-child) {
+    margin-bottom: 2px;
   }
 
   .link {

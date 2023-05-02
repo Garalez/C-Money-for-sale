@@ -8,11 +8,13 @@ export const Footer = () => (
   <footer className={style.footer}>
     <div className={style.footerWrapper}>
       <div className={style.footerInfo}>
-        <div className={style.footerLinksWrapper}>
-          <PlatformCopyrights />
-          <PlatformLinks />
+        <div className={style.footerListsWrapper}>
+          <div className={style.footerLinksWrapper}>
+            <PlatformCopyrights />
+            <PlatformLinks />
+          </div>
+          <PlatformContacts />
         </div>
-        <PlatformContacts />
         <PlatformOnMap />
       </div>
       <div className={style.copyrights}>

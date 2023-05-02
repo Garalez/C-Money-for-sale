@@ -6,6 +6,15 @@
   border: 0;
 }
 
+@media(max-width: 1220px) {
+  .mapWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+}
+
 @media (max-width: 1024px) {
   .map {
     width: 355px;
@@ -19,6 +28,7 @@
   }
 
   .mapWrapper {
+    justify-content: flex-start;
     padding-top: 0px;
     margin-bottom: 36px;
   }

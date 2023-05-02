@@ -2,10 +2,9 @@
   margin-right: 4.25vw;
 }
 
-.platformLogo {
+.platformLink {
   display: flex;
   align-items: center;
-  gap: 8px;
   color: var(--white);
   font-family: 'Nunito';
   font-style: normal;
@@ -13,6 +12,10 @@
   font-size: 22px;
   line-height: 30px;
   cursor: pointer;
+}
+
+.platformLogo {
+  margin-right: 8px;
 }
 
 @media (min-width: 1440px) {
@@ -24,7 +27,6 @@
 @media (max-width: 1024px) {
   .copyrightsLogoWrapper {
     margin-right: 4.44vw;
-    gap: 0;
   }
 }
 

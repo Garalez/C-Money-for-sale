@@ -3,11 +3,6 @@
   align-items: center;
 }
 
-.navList {
-  display: flex;
-  gap: 30px;
-}
-
 .navItemButton {
   font-family: 'Nunito';
   font-style: normal;
@@ -19,11 +14,14 @@
   border: none;
 }
 
-.navItemButton:last-child {
+.navItemButton {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+}
+
+.exitText {
+  margin-right: 5px;
 }
 
 .navItemButton:hover {

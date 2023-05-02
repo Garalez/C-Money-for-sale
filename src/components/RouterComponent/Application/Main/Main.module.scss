@@ -36,7 +36,13 @@
 .logoLink {
   display: flex;
   align-items: center;
-  gap: 8px;
+}
+
+.logo {
+  margin-right: 8px;
+}
+
+.logoName {
   color: var(--white);
   font-family: 'Nunito';
   font-style: normal;
@@ -52,7 +58,10 @@
 @media(max-width: 375px) {
   .copyrightsWrapper {
     flex-direction: column;
-    gap: 15px;
+  }
+
+  .logoLink {
+    margin-bottom: 15px;
   }
 
   .copyrightsMark {

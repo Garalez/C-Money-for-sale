@@ -54,7 +54,6 @@ export const Auth = () => {
                   name='login'
                   onChange={(e) => handleChange(e)}
                   value={userAccountData.login}
-                  // onBlur={() => inputValidation()}
                   required
                 />
               </li>
@@ -69,7 +68,6 @@ export const Auth = () => {
                   name='password'
                   onChange={(e) => handleChange(e)}
                   value={userAccountData.password}
-                  // onBlur={() => inputValidation()}
                   required
                 />
               </li>

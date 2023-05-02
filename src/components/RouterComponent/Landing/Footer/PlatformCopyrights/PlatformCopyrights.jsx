@@ -7,9 +7,9 @@ export const PlatformCopyrights = () => (
     <a
       href='/application'
       aria-label='Логотип и переход к приложению'
-      className={style.platformLogo}
+      className={style.platformLink}
     >
-      <PlatformLogoSvg /> 7-Monet
+      <PlatformLogoSvg className={style.platformLogo} /> <span>7-Monet</span>
     </a>
   </div>
 );

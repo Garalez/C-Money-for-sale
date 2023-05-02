@@ -27,7 +27,7 @@ export const AccountInfo = () => {
       <div className={style.accountWrapper}>
         <div className={style.accountTitleWrapper}>
           <h1 className={style.accountTitle}>
-            <span>Здравствуйте, </span>
+            <span className={style.accountGreetings}>Здравствуйте, </span>
             <span>{userData.accountInfo.name}!</span>
           </h1>
           <div className={style.btnWrapper}>

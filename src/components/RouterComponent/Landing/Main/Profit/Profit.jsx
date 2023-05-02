@@ -11,7 +11,7 @@ export const Profit = () => (
     <ul className={style.profitList}>
       <li className={`${style.profitItem} ${style.profitStatistics}`}>
         <div className={style.subtitleWrapper}>
-          <EqualizerSvg />
+          <EqualizerSvg className={style.profitLogo} />
           <p className={style.subtitle}>Статистика</p>
         </div>
         <p className={`${style.profitText} ${style.profitStatisticsText}`}>
@@ -21,7 +21,7 @@ export const Profit = () => (
       </li>
       <li className={`${style.profitItem} ${style.profitSafety}`}>
         <div className={style.subtitleWrapper}>
-          <LockSvg />
+          <LockSvg className={style.profitLogo} />
           <p className={style.subtitle}>Надёжность</p>
         </div>
         <p className={`${style.profitText} ${style.profitSafetyText}`}>
@@ -31,7 +31,7 @@ export const Profit = () => (
       </li>
       <li className={`${style.profitItem} ${style.profitExchange}`}>
         <div className={style.subtitleWrapper}>
-          <AutoRenewSvg />
+          <AutoRenewSvg className={style.profitLogo} />
           <p className={style.subtitle}>Обмен валюты</p>
         </div>
         <p className={`${style.profitText} ${style.profitExchangeText}`}>
@@ -41,7 +41,7 @@ export const Profit = () => (
       </li>
       <li className={`${style.profitItem} ${style.profitComfort}`}>
         <div className={style.subtitleWrapper}>
-          <CheckCircleSvg />
+          <CheckCircleSvg className={style.profitLogo} />
           <p className={style.subtitle}>Удобство</p>
         </div>
         <p className={`${style.profitText} ${style.profitComfortText}`}>

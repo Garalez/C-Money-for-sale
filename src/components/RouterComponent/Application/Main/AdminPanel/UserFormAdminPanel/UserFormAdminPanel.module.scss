@@ -12,11 +12,18 @@
   margin-bottom: 10px;
 }
 
+.userFormItem:not(:last-child) {
+  margin-bottom: 25px;
+}
+
 .userFormLabelsWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+}
+
+.userFormLabel:not(:last-child) {
+  margin-right: 20px;
 }
 
 .userFormAccount {
@@ -94,9 +101,16 @@
 }
 
 @media(max-width: 860px) {
+  .userFormLabel:not(:last-child) {
+    margin: 0 0 20px 0;
+  }
+
+  .userFormLabel:nth-child(2) {
+    margin-bottom: 25px;
+  }
+
   .userFormLabelsWrapper {
     flex-direction: column;
-    gap: 20px;
   }
 }
 

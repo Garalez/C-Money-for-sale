@@ -26,6 +26,7 @@ export const BurgerMenu = () => {
             aria-label='Логотип и переход к приложению'
           >
             <LogoSvg className={style.logo} />
+            <span className={style.logoText}>7-Monet</span>
           </a>
           <nav className={style.navigate}>
             <ul className={style.list}>

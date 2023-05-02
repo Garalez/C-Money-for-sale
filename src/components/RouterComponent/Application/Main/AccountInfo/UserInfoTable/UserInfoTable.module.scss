@@ -125,12 +125,17 @@
   border-right: none;
 }
 
-@media(max-width: 440px) {
+@media(max-width: 870px) {
   .historyTitle {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+  }
+}
+
+@media(max-width: 440px) {
+  .historyTitle {
+    font-size: 23px;
   }
 
   .historyTableHeading {

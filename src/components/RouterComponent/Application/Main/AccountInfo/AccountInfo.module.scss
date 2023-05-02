@@ -77,12 +77,6 @@
   color: var(--white);
 }
 
-.accountList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
 .accountItem {
   width: 380px;
   height: 240px;
@@ -137,14 +131,6 @@
 
 .accountSortWrapper {
   position: relative;
-}
-
-.accountSortTextWrapper {
-  display: flex;
-  gap: 15px;
-  padding-right: 22px;
-  align-self: flex-end;
-  cursor: pointer;
 }
 
 .currencyExchangeCustomSelect {
@@ -237,7 +223,10 @@
 .btnWrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+}
+
+.accountBtn {
+  margin-bottom: 10px;
 }
 
 .accountInfoTitle {
@@ -283,8 +272,7 @@
   .accountTitleWrapper {
     flex-direction: column-reverse;
     align-items: center;
-    margin-bottom: 35px;
-    gap: 15px;
+    margin-bottom: 20px;
   }
 
   .btnWrapper {

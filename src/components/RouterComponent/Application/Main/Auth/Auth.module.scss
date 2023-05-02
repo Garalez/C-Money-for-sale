@@ -29,17 +29,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
   margin-bottom: 30px;
 }
 
 .authInputItem {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+}
+
+.authInputItem:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .authLabel {
+  margin-bottom: 2px;
   padding-left: 20px;
   color: var(--inactive-input-border);
   font-family: 'Nunito';

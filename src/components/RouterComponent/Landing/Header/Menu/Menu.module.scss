@@ -5,7 +5,6 @@
 
 .list {
   display: flex;
-  gap: 40px;
 }
 
 .item {
@@ -15,6 +14,10 @@
   font-weight: 700;
   font-size: 15px;
   line-height: 20px;
+}
+
+.item:not(:last-child) {
+  margin-right: 40px;
 }
 
 .link {

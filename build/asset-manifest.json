@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6d5150d3.css",
-    "main.js": "/static/js/main.fc056330.js",
+    "main.css": "/static/css/main.e2d70fa0.css",
+    "main.js": "/static/js/main.defcb363.js",
     "static/media/transferLogo1280.png": "/static/media/transferLogo1280.9c155abe0017c26acc04.png",
     "static/media/Nunito-Regular.ttf": "/static/media/Nunito-Regular.99a3b019e7727ac19479.ttf",
     "static/media/Nunito-SemiBold.ttf": "/static/media/Nunito-SemiBold.77c1e330694154d3efed.ttf",
@@ -19,6 +19,7 @@
     "static/media/registrationInactiveTab2.svg": "/static/media/registrationInactiveTab2.c2d18b4aac648408a3d6b0ac35cc1766.svg",
     "static/media/customHoverCursor.svg": "/static/media/customHoverCursor.8346ccbcd40597968609.svg",
     "static/media/profitLock.svg": "/static/media/profitLock.2fb82acae165b1f53634d96a189a4b6b.svg",
+    "index.html": "/index.html",
     "static/media/profitAutorenew.svg": "/static/media/profitAutorenew.b24217e3375334503afa8530a2ace486.svg",
     "static/media/registrationActiveTab1.svg": "/static/media/registrationActiveTab1.1a864f367a63afd123ef011fbdfb018e.svg",
     "static/media/registrationInactiveTab1.svg": "/static/media/registrationInactiveTab1.31b5156ddca5d05251e7a4b09e3aa07e.svg",
@@ -28,18 +29,17 @@
     "static/media/telegramSocial.svg": "/static/media/telegramSocial.ff37b3f1dbdd9d5baee0e230513bba14.svg",
     "static/media/violetLogo.svg": "/static/media/violetLogo.52855721555dac5579260d134514ea1b.svg",
     "static/media/whiteLogo.svg": "/static/media/whiteLogo.159339fafb8abb42bf08eb780c103696.svg",
-    "index.html": "/index.html",
     "static/media/reviewsArrowPrev.svg": "/static/media/reviewsArrowPrev.7a1a5e4318d3d21c7a6b4ef8d2c8dc1f.svg",
     "static/media/burgerMenuClose.svg": "/static/media/burgerMenuClose.529fe19e75d3956d8aa56a069c21e255.svg",
     "static/media/reviewsArrowNext.svg": "/static/media/reviewsArrowNext.bf92a201d34fbd75c908f9b49e1c01dc.svg",
     "static/media/burgerMenu.svg": "/static/media/burgerMenu.f6d9fed14acaedcb39a075e9ec002172.svg",
     "static/media/registrationSuccessCheckmark.svg": "/static/media/registrationSuccessCheckmark.ec31299a7c32246052fae338199f93cb.svg",
     "static/media/customCheckboxMark.svg": "/static/media/customCheckboxMark.0411e24a88f81fb07f9e.svg",
-    "main.6d5150d3.css.map": "/static/css/main.6d5150d3.css.map",
-    "main.fc056330.js.map": "/static/js/main.fc056330.js.map"
+    "main.e2d70fa0.css.map": "/static/css/main.e2d70fa0.css.map",
+    "main.defcb363.js.map": "/static/js/main.defcb363.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d5150d3.css",
-    "static/js/main.fc056330.js"
+    "static/css/main.e2d70fa0.css",
+    "static/js/main.defcb363.js"
   ]
 }

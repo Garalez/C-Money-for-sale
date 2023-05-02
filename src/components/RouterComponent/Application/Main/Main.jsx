@@ -32,13 +32,17 @@ export const Main = () => {
             <Route path='/auth' element={<Auth />} />
             <Route path='/accounts' element={<AccountInfo />} />
             <Route path='/adminPanel' element={<AdminPanel />} />
-            <Route path='/withdraw' element={<WithdrawPanel userData={userData.accountInfo} />} />
+            <Route
+              path='/withdraw'
+              element={<WithdrawPanel userData={userData.accountInfo} />}
+            />
           </Routes>
         </div>
         <div className={style.footer}>
           <div className={style.copyrightsWrapper}>
             <a href='/' className={style.logoLink}>
-              <LogoSvg className={style.logo} /> 7-Monet
+              <LogoSvg className={style.logo} />
+              <span className={style.logoName}>7-Monet</span>
             </a>
             <p className={style.copyrightsMark}>© 7 Monet, 2023</p>
           </div>

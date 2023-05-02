@@ -17,7 +17,6 @@
 .profitList {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 25px;
 }
 
 .profitItem {
@@ -28,8 +27,11 @@
 
 .subtitleWrapper {
   display: flex;
-  gap: 5px;
   margin-bottom: 10px;
+}
+
+.profitLogo {
+  margin-right: 5px;
 }
 
 .subtitle {
@@ -69,6 +71,22 @@
 .profitExchangeText,
 .profitComfortText {
   margin-bottom: 37px;
+}
+
+@media(max-width: 1230px) {
+  .profitStatistics,
+.profitSafety,
+.profitExchange {
+  margin-bottom: 40px;
+
+}
+
+.profitSafetyText,
+.profitExchangeText,
+.profitComfortText {
+  margin-bottom: 37px;
+}
+
 }
 
 @media (max-width: 1024px) {
@@ -127,11 +145,6 @@
     font-size: 5.21vw;
   }
 
-  .profitList {
-    row-gap: 40px;
-    column-gap: 54px;
-  }
-
   .profitItem {
     width: 257px;
   }
@@ -168,8 +181,6 @@
 
   .profitList {
     justify-content: center;
-    row-gap: 40px;
-    column-gap: 54px;
   }
 }
 
@@ -188,8 +199,6 @@
 
   .profitList {
     justify-content: start;
-    row-gap: 20px;
-    column-gap: 0;
   }
 
   .profitItem {
