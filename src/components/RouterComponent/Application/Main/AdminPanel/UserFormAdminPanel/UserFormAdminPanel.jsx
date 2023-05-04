@@ -102,7 +102,7 @@ export const UserFormAdminPanel = ({ user }) => {
             <form className={style.userForm} onSubmit={formSubmit}>
               <h2
                 className={style.userFormTitle}
-              >{`${user.name} ${user.lastName}`}</h2>
+              >{`${capitalize(user.name)} ${capitalize(user.lastName)}`}</h2>
               <div className={style.userFormContentWrapper}>
                 <div className={style.userFormLabelsWrapper}>
                   <label className={style.userFormLabel}>
