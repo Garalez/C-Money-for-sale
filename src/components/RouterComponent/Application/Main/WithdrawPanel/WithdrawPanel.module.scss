@@ -8,6 +8,31 @@
   flex-direction: column;
 }
 
+.withdrawReturnBtnWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+  padding-right: 15px;
+}
+
+.withdrawReturnBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 50px;
+  background: var(--main-gradient);
+  border: none;
+  border-radius: 8px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+}
+
 .withdrawTitle {
   font-family: 'Comfortaa';
   font-style: normal;
@@ -79,20 +104,24 @@
   color: var(--white);
 }
 
-.withdrawBtn:hover {
+.withdrawBtn:hover,
+.withdrawReturnBtn:hover {
   cursor: url('../../../../../assets/svg/customHoverCursor.svg'), pointer;
   background: var(--button-hover-gradient);
 }
 
-.withdrawBtn:focus {
+.withdrawBtn:focus,
+.withdrawReturnBtn:focus {
   background: var(--button-focus-gradient);
 }
 
-.withdrawBtn:active {
+.withdrawBtn:active,
+.withdrawReturnBtn:active {
   background: var(--blue);
 }
 
-.withdrawBtn:disabled {
+.withdrawBtn:disabled,
+.withdrawReturnBtn:disabled {
   background: var(--grey);
   cursor: not-allowed;
 }
@@ -109,6 +138,11 @@
 }
 
 @media(max-width: 920px) {
+  .withdrawReturnBtnWrapper {
+    justify-content: center;
+    padding-right: 0;
+  }
+
   .withdrawList {
     flex-direction: column;
     justify-content: center;
@@ -118,6 +152,7 @@
   .withdrawItem:not(:last-child) {
     margin: 0 0 20px 0;
   }
+  
 }
 
 @media(max-width: 520px) {

@@ -1,11 +1,11 @@
 import style from './Registration.module.scss';
 import { useState } from 'react';
+import { createUser } from '../../../../../utils/createUser';
 import FullNameForm from './FullNameForm';
 import ContactsForm from './ContactsForm';
 import AccountCreationForm from './AccountCreationForm';
 import RegistrationSuccess from './RegistrationSuccess';
 import RegistrationTabs from './RegistrationTabs';
-import { createUser } from '../../../../../utils/createUser';
 
 export const Registration = () => {
   const [activeTab, setActiveTab] = useState({
@@ -23,7 +23,6 @@ export const Registration = () => {
   const [formValues, setFormValues] = useState({
     name: '',
     surname: '',
-    patronymic: '',
     phoneNumber: '',
     eMail: '',
     login: '',

@@ -2,6 +2,7 @@
 import style from './WithdrawPanel.module.scss';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { ModalWindow } from '../../../../../UI/ModalWindow/ModalWindow';
 import { userInfoUpdateRequestAsync } from '../../../../../store/userInfoUpdateRequest/userInfoUpdateRequestActions';
 import PropTypes from 'prop-types';
@@ -10,6 +11,7 @@ import Preloader from '../../../../../UI/Preloader';
 export const WithdrawPanel = ({ userData }) => {
   const dispatch = useDispatch();
   const isUserUpdated = useSelector((state) => state.userInfoUpdate);
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [displayError, setDisplayError] = useState(false);
   const [isSumCorrect, setIsSumCorrect] = useState(true);
@@ -95,6 +97,14 @@ export const WithdrawPanel = ({ userData }) => {
             />
           )}
           <section className={style.withdraw}>
+            <div className={style.withdrawReturnBtnWrapper}>
+              <button
+                className={style.withdrawReturnBtn}
+                onClick={() => navigate('/application/accounts')}
+              >
+                Вернутся
+              </button>
+            </div>
             <h2 className={style.withdrawTitle}>Вывод средств</h2>
             <form
               className={style.withdrawForm}

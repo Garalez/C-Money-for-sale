@@ -1,4 +1,4 @@
-import style from '../Registration.module.scss';
+import style from './ContactsForm.module.scss';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
@@ -91,10 +91,12 @@ export const ContactsForm = ({
               <p className={style.inputsError}>Неправильный e-mail</p>
             )}
           </li>
+          <li className={style.registrationInputItem}>
+            <div className={style.nextBtnWrapper}>
+              <button className={style.nextBtn}>Далее</button>
+            </div>
+          </li>
         </ul>
-        <div className={style.nextBtnWrapper}>
-          <button className={style.nextBtn}>Далее</button>
-        </div>
       </div>
     </form>
   );

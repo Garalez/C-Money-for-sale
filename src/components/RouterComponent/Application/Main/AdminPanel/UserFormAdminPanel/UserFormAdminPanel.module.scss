@@ -20,6 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 20px;
 }
 
 .userFormLabel:not(:last-child) {
@@ -30,6 +31,10 @@
   padding-left: 10px;
   color: var(--inactive-input-border);
   margin-bottom: 5px;
+}
+
+.userFormContentWrapper {
+  display: flex;
 }
 
 .userFormInput {
@@ -55,7 +60,13 @@
   border: 2px solid var(--pink);
 }
 
-.userFormSubmitBtn {
+.userFormBtnWrapper {
+  display: flex;
+  align-self: flex-end;
+}
+
+.userFormSubmitBtn,
+.userFormDeleteBtn {
   width: 260px;
   height: 50px;
   align-self: flex-end;
@@ -70,15 +81,22 @@
   border-radius: 10px;
 }
 
-.userFormSubmitBtn:hover {
+.userFormSubmitBtn {
+  margin-right: 20px;
+}
+
+.userFormSubmitBtn:hover,
+.userFormDeleteBtn:hover {
   background: var(--main-gradient-hover);
 }
 
-.userFormSubmitBtn:focus {
+.userFormSubmitBtn:focus,
+.userFormDeleteBtn:focus {
   background: var(--main-gradient-focus);
 }
 
-.userFormSubmitBtn:disabled {
+.userFormSubmitBtn:disabled,
+.userFormDeleteBtn:disabled {
   background: var(--grey);
   cursor: not-allowed;
 }
@@ -100,21 +118,36 @@
   margin-bottom: 10px;
 }
 
-@media(max-width: 860px) {
-  .userFormLabel:not(:last-child) {
+@media (max-width: 1170px) {
+  .userFormLabelsWrapper {
     margin: 0 0 20px 0;
   }
 
-  .userFormLabel:nth-child(2) {
-    margin-bottom: 25px;
-  }
-
-  .userFormLabelsWrapper {
+  .userFormContentWrapper {
     flex-direction: column;
   }
 }
 
-@media(max-width: 520px) {
+@media (max-width: 650px) {
+  .userFormLabelsWrapper {
+    flex-direction: column;
+  }
+
+  .userFormLabel:not(:last-child) {
+    margin: 0 0 20px 0;
+  }
+
+  .userFormBtnWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .userFormSubmitBtn {
+    margin: 0 0 20px 0;
+  }
+}
+
+@media (max-width: 520px) {
   .contentSpan:not(:last-child) {
     margin-bottom: 5px;
   }

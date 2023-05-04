@@ -1,0 +1,290 @@
+.registrationInputList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 11px;
+}
+
+.registrationInputItem {
+  height: 121px;
+  display: flex;
+  flex-direction: column;
+}
+
+.registrationInputItem:last-child {
+  justify-self: flex-end;
+  align-self: flex-end;
+  justify-content: center;
+}
+
+.registrationInputItem:not(:last-child) {
+  margin-right: 20px;
+}
+
+.registrationLabel {
+  margin-bottom: 2px;
+  padding-left: 20px;
+  color: var(--light-purple);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.registrationInput {
+  width: 380px;
+  height: 70px;
+  padding-left: 18px;
+  background: var(--white);
+  font-size: 27px;
+  border: 2px solid var(--inactive-input-border);
+  border-radius: 10px;
+  caret-color: var(--purple);
+}
+
+.registrationInput:focus {
+  outline: none;
+  border: 2px solid var(--pink);
+}
+
+.nextBtn {
+  width: 380px;
+  height: 70px;
+  margin-bottom: 10px;
+  align-self: flex-end;
+  background: var(--main-gradient);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+}
+
+.nextBtn:hover {
+  background: var(--main-gradient-hover);
+}
+
+.nextBtn:focus {
+  background: var(--main-gradient-focus);
+}
+
+.nextBtn:disabled {
+  background: var(--grey);
+  cursor: not-allowed;
+}
+
+.nextBtnWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.inputsError {
+  padding-top: 5px;
+  padding-left: 15px;
+  color: red;
+}
+
+@media (max-width: 1230px) {
+  .registrationForm {
+    padding: 0 20px;
+  }
+
+  .contactWrapper {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1024px) {
+  .registrationSection {
+    padding: 70px 0;
+  }
+
+  .registrationTitle {
+    padding-left: 22px;
+    margin-bottom: 30px;
+  }
+
+  .registrationText {
+    padding-left: 22px;
+    margin-bottom: 67px;
+    font-size: 24px;
+  }
+
+  .registrationFormUnderlay {
+    padding-left: 0;
+  }
+
+  .registrationForm {
+    padding: 0 22px;
+  }
+
+  .registrationInput {
+    width: 315px;
+  }
+
+  .registrationInputItem:not(:last-child) {
+    margin-right: 17px;
+  }
+
+  .nextBtn {
+    width: 315px;
+  }
+
+  .inputsError {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .registrationSection {
+    padding: 60px 0;
+  }
+
+  .registrationTitle {
+    padding-left: 94px;
+    margin-bottom: 20px;
+    font-size: 5.21vw;
+  }
+
+  .registrationText {
+    padding-left: 94px;
+    margin-bottom: 50px;
+    font-size: 3.126vw;
+  }
+
+  .registrationForm {
+    padding: 0px 94px;
+  }
+
+  .registrationInput,
+  .registrationInputItem,
+  .registrationAgreementWrapper,
+  .nextBtn {
+    width: 100%;
+  }
+
+  .nextBtnWrapper {
+    padding-top: 0;
+  }
+
+  .registrationInputList {
+    margin-right: 0;
+  }
+
+  .registrationInputItem:not(:last-child) {
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 550px) {
+  .registrationSection {
+    padding: 60px 0;
+  }
+
+  .registrationTitle {
+    padding-left: 60px;
+    margin-bottom: 20px;
+    font-size: 5.21vw;
+    line-height: 7vw;
+  }
+
+  .registrationText {
+    padding-left: 60px;
+    margin-bottom: 7vw;
+    font-size: 3.126vw;
+  }
+
+  .registrationForm {
+    padding: 0px 60px;
+  }
+
+  .registrationInput {
+    width: 100%;
+  }
+
+  .registrationInputItem {
+    width: 100%;
+  }
+
+  .nextBtn {
+    width: 100%;
+  }
+
+  .inputsError {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .registrationSection {
+    padding: 40px 0;
+  }
+
+  .registrationTitle {
+    padding-left: 15px;
+    max-width: 290px;
+    margin-bottom: 11px;
+    font-size: 19px;
+    line-height: 21px;
+  }
+
+  .registrationText {
+    padding-left: 15px;
+    max-width: 210px;
+    margin-bottom: 17px;
+    font-size: 17px;
+  }
+
+  .registrationForm {
+    padding-left: 15px;
+    padding-right: 25px;
+  }
+
+  .registrationTabsList {
+    margin-bottom: 0px;
+  }
+
+  .registrationTabsBtn {
+    height: 33px;
+    width: 33px;
+  }
+
+  .registrationLabel {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .inputsError {
+    padding-top: 0;
+    padding-left: 20px;
+  }
+
+  .registrationInputList {
+    margin-bottom: 13px;
+  }
+
+  .registrationInput {
+    width: 280px;
+    height: 50px;
+    padding-left: 18px;
+    padding-bottom: 3px;
+    font-size: 9px;
+    border: 1px solid var(--inactive-input-border);
+  }
+
+  .registrationInputItem {
+    height: 84px;
+  }
+
+  .nextBtn {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+

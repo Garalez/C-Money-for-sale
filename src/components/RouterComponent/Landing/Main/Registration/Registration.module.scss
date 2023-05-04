@@ -85,6 +85,7 @@
 .registrationInputItem:last-child {
   justify-self: flex-end;
   align-self: flex-end;
+  justify-content: center;
 }
 
 .registrationInputItem:not(:last-child) {
@@ -121,6 +122,7 @@
 .nextBtn {
   width: 380px;
   height: 70px;
+  margin-bottom: 10px;
   align-self: flex-end;
   background: var(--main-gradient);
   font-family: 'Nunito';
@@ -150,10 +152,6 @@
   align-self: flex-end;
   display: flex;
   flex-direction: column;
-}
-
-.nextBtn {
-  margin-bottom: 10px;
 }
 
 .customCheckboxWrapper {
@@ -231,6 +229,9 @@
 
 .nextBtnWrapper {
   padding-top: 22px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .inputsError {
@@ -238,6 +239,15 @@
   padding-left: 15px;
   color: red;
 }
+
+.registrationInputItem:nth-child(3) {
+  margin-right: 0;
+}
+
+.registrationInputItem:last-child {
+  width: 100%;
+}
+
 
 @media (max-width: 1230px) {
   .registrationForm {

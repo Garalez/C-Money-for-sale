@@ -96,28 +96,30 @@ export const AccountCreationForm = ({
             <p className={style.inputsError}>Пароли не совпадают</p>
           )}
         </li>
-      </ul>
-      <div className={style.registrationAgreementWrapper}>
-        <button className={style.nextBtn}>Зарегистрироваться</button>
-        <div className={style.registrationPolicyWrapper}>
-          <div className={style.customCheckboxWrapper}>
-            <input
-              className={style.customCheckboxInput}
-              type='checkbox'
-              id='customCheckbox'
-            />
-            <label
-              className={style.customCheckboxLabel}
-              htmlFor='customCheckbox'
-            >
-              <div className={style.customCheckboxAgreement}>
-                By clicking on the button, I consent to the processing of
-                personal data and agree to the privacy policy
+        <li className={style.registrationInputItem}>
+          <div className={style.registrationAgreementWrapper}>
+            <button className={style.nextBtn}>Зарегистрироваться</button>
+            <div className={style.registrationPolicyWrapper}>
+              <div className={style.customCheckboxWrapper}>
+                <input
+                  className={style.customCheckboxInput}
+                  type='checkbox'
+                  id='customCheckbox'
+                />
+                <label
+                  className={style.customCheckboxLabel}
+                  htmlFor='customCheckbox'
+                >
+                  <div className={style.customCheckboxAgreement}>
+                    By clicking on the button, I consent to the processing of
+                    personal data and agree to the privacy policy
+                  </div>
+                </label>
               </div>
-            </label>
+            </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </form>
   );
 };
