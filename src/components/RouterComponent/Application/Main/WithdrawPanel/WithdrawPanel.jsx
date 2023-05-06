@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import style from './WithdrawPanel.module.scss';
+import InputMask from 'react-input-mask';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -13,8 +14,10 @@ export const WithdrawPanel = ({ userData }) => {
   const isUserUpdated = useSelector((state) => state.userInfoUpdate);
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [displayError, setDisplayError] = useState(false);
-  const [isSumCorrect, setIsSumCorrect] = useState(true);
+  const [displayError, setDisplayError] = useState({
+    isCardValid: true,
+    isSumCorrect: true,
+  });
   const [inputValues, setInputValues] = useState({
     card: '',
     rub: '',
@@ -29,13 +32,6 @@ export const WithdrawPanel = ({ userData }) => {
   const inputControl = (e) => {
     const { name, value } = e.target;
     setInputValues({ ...inputValues, [name]: value });
-
-    if (inputValues.card.length >= 16) {
-      return setInputValues({
-        ...inputValues,
-        [name]: value.slice(0, 16),
-      });
-    }
   };
 
   const modalAnswerConfirm = () => {
@@ -60,13 +56,20 @@ export const WithdrawPanel = ({ userData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const checkIfInputContainsOnlyNumbers = inputValues.card
+      .split(' ')
+      .every((el) => Number.isFinite(+el));
+
+    if (!checkIfInputContainsOnlyNumbers) {
+      return setDisplayError({ isCardValid: false, isSumCorrect: true });
+    }
+
     if (userData.rub - +inputValues.rub < 0) {
-      return [setDisplayError(true), setIsSumCorrect(true)];
+      return setDisplayError({ isCardValid: true, isSumCorrect: false });
     } else if (+inputValues.rub <= 0) {
-      return [setIsSumCorrect(false), setDisplayError(false)];
+      return setDisplayError({ isCardValid: true, isSumCorrect: false });
     } else {
-      setDisplayError(false);
-      setIsSumCorrect(true);
+      setDisplayError({ isCardValid: true, isSumCorrect: true });
       setIsModalOpen(true);
     }
   };
@@ -82,11 +85,14 @@ export const WithdrawPanel = ({ userData }) => {
               content={
                 <>
                   <span className={style.contentSpan}>Подтвердите перевод</span>
-                  <span className={style.contentSpan}>На карту</span>
+                  <span
+                    className={style.contentSpan}
+                  >{`${inputValues.rub} ₽`}</span>
+                  <span className={style.contentSpan}>На карту :</span>
                   <span
                     className={style.contentSpan}
                   >{`${inputValues.card}`}</span>
-                  <span className={style.contentSpan}>Остаток на счету</span>
+                  <span className={style.contentSpan}>Остаток на счету :</span>
                   <span className={style.contentSpan}>{`${
                     userData.rub - +inputValues.rub
                   } ₽`}</span>
@@ -114,25 +120,32 @@ export const WithdrawPanel = ({ userData }) => {
                 <li className={style.withdrawItem}>
                   <label className={style.withdrawLabel}>
                     <p className={style.withdrawSubtitle}>Номер карты:</p>
-                    <input
+                    <InputMask
                       className={style.withdrawInput}
-                      type='number'
-                      name='card'
-                      onChange={(e) => inputControl(e)}
                       value={inputValues.card}
+                      name='card'
+                      mask='9999 9999 9999 9999'
+                      inputMode='numeric'
+                      onChange={(e) => inputControl(e)}
+                      maskChar='_'
                     />
+                    ;
                   </label>
                 </li>
                 <li className={style.withdrawItem}>
                   <label className={style.withdrawLabel}>
-                    <p className={style.withdrawSubtitle}>Сумма рублей:</p>
-                    <input
-                      className={style.withdrawInput}
-                      type='number'
-                      name='rub'
-                      onChange={(e) => inputControl(e)}
-                      value={inputValues.rub}
-                    />
+                    <p className={style.withdrawSubtitle}>Сумма в рублях:</p>
+                    <div className={style.withdrawRubInputWrapper}>
+                      <InputMask
+                        className={style.withdrawInput}
+                        value={inputValues.rub}
+                        name='rub'
+                        mask='9999999'
+                        inputMode='numeric'
+                        onChange={(e) => inputControl(e)}
+                        maskChar=''
+                      />
+                    </div>
                   </label>
                 </li>
                 <li className={style.withdrawItem}>
@@ -142,15 +155,11 @@ export const WithdrawPanel = ({ userData }) => {
                 </li>
               </ul>
             </form>
-            {displayError && (
-              <div>
-                <p className={style.withdrawError}>Недостаточно средств</p>
-              </div>
+            {!displayError.isSumCorrect && (
+              <p className={style.withdrawError}>Неверно введена сумма</p>
             )}
-            {!isSumCorrect && (
-              <div>
-                <p className={style.withdrawError}>Неверно введена сумма</p>
-              </div>
+            {!displayError.isCardValid && (
+              <p className={style.withdrawError}>Неверно введена карта</p>
             )}
           </section>
         </>

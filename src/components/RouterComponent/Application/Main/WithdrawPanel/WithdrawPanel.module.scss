@@ -25,7 +25,7 @@
   background: var(--main-gradient);
   border: none;
   border-radius: 8px;
-  font-family: "Nunito";
+  font-family: 'Nunito';
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -64,22 +64,31 @@
   margin-bottom: 10px;
 }
 
+.withdrawRubInputWrapper {
+  position: relative;
+}
+
+.withdrawRubInputWrapper::after {
+  content: '₽';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: var(--inactive-input-border);
+  font-size: 23px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
 .withdrawInput {
   width: 280px;
   height: 50px;
   padding-left: 18px;
   background: var(--white);
-  font-size: 27px;
+  font-size: 23px;
   border: 2px solid var(--inactive-input-border);
   border-radius: 10px;
   caret-color: var(--purple);
-}
-
-.withdrawInput::-webkit-outer-spin-button,
-.withdrawInput::-webkit-inner-spin-button {
-  appearance: none;
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 .withdrawInput:focus {
@@ -137,7 +146,7 @@
   margin-bottom: 10px;
 }
 
-@media(max-width: 920px) {
+@media (max-width: 920px) {
   .withdrawReturnBtnWrapper {
     justify-content: center;
     padding-right: 0;
@@ -152,16 +161,15 @@
   .withdrawItem:not(:last-child) {
     margin: 0 0 20px 0;
   }
-  
 }
 
-@media(max-width: 520px) {
+@media (max-width: 520px) {
   .contentSpan:not(:last-child) {
     margin-bottom: 5px;
   }
 }
 
-@media(max-width: 420px) {
+@media (max-width: 420px) {
   .withdraw {
     padding-top: 25px;
   }
