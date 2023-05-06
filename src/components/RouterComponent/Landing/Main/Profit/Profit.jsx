@@ -45,7 +45,7 @@ export const Profit = () => (
           <p className={style.subtitle}>Удобство</p>
         </div>
         <p className={`${style.profitText} ${style.profitComfortText}`}>
-          удобная платформа для отслежки счётов
+          удобная платформа для зароботка и инвестиций
         </p>
         <div className={style.profitUnderline}></div>
       </li>

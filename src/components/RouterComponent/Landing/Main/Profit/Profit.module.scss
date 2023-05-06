@@ -15,8 +15,8 @@
 }
 
 .profitList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-areas: 'statistics safety exchange comfort';
 }
 
 .profitItem {
@@ -61,9 +61,23 @@
   background: var(--main-gradient);
 }
 
-.profitStatistics,
-.profitSafety,
+.profitStatistics {
+  grid-area: statistics;
+  margin-right: 51px;
+}
+
+.profitSafety {
+  grid-area: safety;
+  margin-right: 51px;
+}
+
 .profitExchange {
+  grid-area: exchange;
+  margin-right: 51px;
+}
+
+.profitComfort {
+  grid-area: comfort;
   margin-right: 51px;
 }
 
@@ -73,20 +87,30 @@
   margin-bottom: 37px;
 }
 
-@media(max-width: 1230px) {
+@media (max-width: 1240px) {
+  .profitList {
+    place-content: center;
+    grid-template-areas:
+      'statistics safety'
+      'exchange comfort';
+  }
+
   .profitStatistics,
-.profitSafety,
-.profitExchange {
-  margin-bottom: 40px;
+  .profitExchange {
+    margin-right: 200px;
+  }
 
-}
+  .profitStatistics,
+  .profitSafety,
+  .profitExchange {
+    margin-bottom: 40px;
+  }
 
-.profitSafetyText,
-.profitExchangeText,
-.profitComfortText {
-  margin-bottom: 37px;
-}
-
+  .profitSafetyText,
+  .profitExchangeText,
+  .profitComfortText {
+    margin-bottom: 37px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -118,9 +142,13 @@
   }
 
   .profitStatistics,
-  .profitSafety,
   .profitExchange {
-    margin-right: 12px;
+    margin-right: 5vw;
+  }
+
+  .profitSafety,
+  .profitComfort {
+    margin-right: 0px;
   }
 
   .profitStatisticsText,
@@ -128,9 +156,12 @@
     margin-bottom: 14px;
   }
 
-  .profitComfortText,
   .profitSafetyText {
     margin-bottom: 37px;
+  }
+
+  .profitComfortText {
+    margin-bottom: 14px;
   }
 }
 
@@ -166,7 +197,7 @@
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 660px) {
   .profitSection {
     padding: 30px 0 80px 0px;
     display: flex;
@@ -180,7 +211,12 @@
   }
 
   .profitList {
-    justify-content: center;
+    place-content: center;
+    grid-template-areas:
+      'statistics'
+      'safety'
+      'exchange'
+      'comfort';
   }
 }
 
@@ -208,19 +244,19 @@
   .subtitleWrapper {
     margin-bottom: 0px;
   }
-  
+
   .subtitle {
-    align-self:center;
+    align-self: center;
     padding-top: 1px;
     font-size: 17px;
   }
-  
+
   .profitText {
     max-width: 220px;
     margin-bottom: 9px;
     font-size: 14px;
   }
-  
+
   .profitUnderline {
     width: 200px;
     height: 2px;

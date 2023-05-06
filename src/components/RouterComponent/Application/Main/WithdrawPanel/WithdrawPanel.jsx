@@ -1,11 +1,11 @@
 /* eslint-disable max-len */
 import style from './WithdrawPanel.module.scss';
-import InputMask from 'react-input-mask';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ModalWindow } from '../../../../../UI/ModalWindow/ModalWindow';
 import { userInfoUpdateRequestAsync } from '../../../../../store/userInfoUpdateRequest/userInfoUpdateRequestActions';
+import InputMask from 'react-input-mask';
 import PropTypes from 'prop-types';
 import Preloader from '../../../../../UI/Preloader';
 

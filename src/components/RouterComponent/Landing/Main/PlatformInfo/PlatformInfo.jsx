@@ -13,8 +13,8 @@ export const PlatformInfo = () => {
       <div className={style.textWrapper}>
         <h1 className={style.title}>Платформа 7 Монет</h1>
         <p className={style.subtitle}>
-          Удобная платформа для хранения счётов, перевода валюты и покупки
-          криптовалюты
+          Удобная платформа для хранения счётов, перевода валюты и получения
+          прибыли от инвестиций
         </p>
         <a className={style.registrationLink} href='#registration'>
           Зарегистрироваться
