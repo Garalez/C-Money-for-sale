@@ -30,6 +30,7 @@ export const userAccountInfoRequestAsync = (id) => (dispatch) => {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
+        data.transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
         dispatch(userAccountInfoRequestSuccess(data));
       } else {
         localStorage.removeItem('userID');

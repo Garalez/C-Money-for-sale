@@ -1,14 +1,16 @@
 /* eslint-disable max-len */
 import style from './UserFormAdminPanel.module.scss';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { userInfoUpdateRequestAsync } from '../../../../../../store/userInfoUpdateRequest/userInfoUpdateRequestActions';
 import { userDeleteRequestAsync } from '../../../../../../store/userDeleteRequest/userDeleteRequestActions';
 import { ModalWindow } from '../../../../../../UI/ModalWindow/ModalWindow';
 import Preloader from '../../../../../../UI/Preloader';
-import PropTypes from 'prop-types';
 
 export const UserFormAdminPanel = ({ user }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isUserUpdated = useSelector((state) => state.userInfoUpdate);
   const isUserDeleted = useSelector((state) => state.userDelete);
@@ -100,9 +102,18 @@ export const UserFormAdminPanel = ({ user }) => {
           )}
           <li className={style.userFormItem}>
             <form className={style.userForm} onSubmit={formSubmit}>
-              <h2
-                className={style.userFormTitle}
-              >{`${capitalize(user.name)} ${capitalize(user.lastName)}`}</h2>
+              <h2 className={style.userFormTitle}>{`${capitalize(
+                user.name
+              )} ${capitalize(user.lastName)}`}</h2>
+              <div className={style.userTransactionsBtnWrapper}>
+                <button
+                  className={`${style.userFormDeleteBtn} ${style.userTransactionsBtn}`}
+                  type='button'
+                  onClick={() => navigate(`/application/userInfo/${user.id}`)}
+                >
+                  Транзакции пользователя
+                </button>
+              </div>
               <div className={style.userFormContentWrapper}>
                 <div className={style.userFormLabelsWrapper}>
                   <label className={style.userFormLabel}>

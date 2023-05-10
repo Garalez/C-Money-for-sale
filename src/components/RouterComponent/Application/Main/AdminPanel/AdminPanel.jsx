@@ -3,8 +3,8 @@ import style from './AdminPanel.module.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { usersRequestAsync } from '../../../../../store/usersRequest/usersRequestActions';
-import Preloader from '../../../../../UI/Preloader';
 import UserFormAdminPanel from './UserFormAdminPanel';
+import Preloader from '../../../../../UI/Preloader';
 
 export const AdminPanel = () => {
   const dispatch = useDispatch();

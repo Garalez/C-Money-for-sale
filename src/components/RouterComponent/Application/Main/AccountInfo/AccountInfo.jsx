@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userAccountInfoRequestAsync } from '../../../../../store/accountInfoRequest/accountInfoRequestActions';
+import { UserInfoTable } from './UserInfoTable/UserInfoTable';
 import { Preloader } from '../../../../../UI/Preloader/Preloader';
 import MyAccounts from './MyAccounts';
-import { UserInfoTable } from './UserInfoTable/UserInfoTable';
 
 export const AccountInfo = () => {
   const navigate = useNavigate();
@@ -17,6 +17,8 @@ export const AccountInfo = () => {
   useEffect(() => {
     if (userId) {
       dispatch(userAccountInfoRequestAsync(userId));
+    } else {
+      navigate('/application/auth');
     }
   }, []);
 
@@ -31,14 +33,12 @@ export const AccountInfo = () => {
             <span>{userData.accountInfo.name}!</span>
           </h1>
           <div className={style.btnWrapper}>
-            <a
-              href='https://my.qiwi.com/Tatiana-BDWWHiMYMA'
-              target='_blank'
-              rel='noreferrer'
+            <button
               className={style.accountBtn}
+              onClick={() => navigate('/application/payments')}
             >
-              Пополнить счёт
-            </a>
+              Пополнить счет
+            </button>
             <button
               className={style.withdrawCashbtn}
               onClick={() => navigate('/application/withdraw')}

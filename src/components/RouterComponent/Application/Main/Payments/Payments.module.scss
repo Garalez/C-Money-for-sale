@@ -1,0 +1,278 @@
+.paymentSection {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.paymentSectionTitle {
+  margin-bottom: 35px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 45px;
+  color: var(--white);
+}
+
+.paymentContentWrapper {
+  width: 700px;
+  padding: 20px 40px 50px 40px;
+  background: var(--app-light-purple);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentSectionSubtitle {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 35px;
+  color: var(--white);
+}
+
+.paymentList {
+  padding: 10px 0;
+  margin-bottom: 30px;
+  color: var(--white);
+  border: 2px solid var(--purple);
+  border-radius: 10px;
+}
+
+.paymentItem {
+  padding: 10px 20px;
+}
+
+.paymentItem:last-child {
+  display: flex;
+  align-items: center;
+}
+
+.paymentItem:not(:last-child) {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.paymentItem:not(:last-child)::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: var(--purple);
+  bottom: -10px;
+  left: 0;
+}
+
+.paymentItem:nth-child(2) {
+  padding-left: 45px;
+}
+
+.paymentPhoneWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.paymentPhone {
+  font-size: 29px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.paymentPhone:hover {
+  color: var(--pink);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.paymentLogo {
+  width: 28px;
+  margin-right: 10px;
+}
+
+.paymentPhoneBtn {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--inactive-input-border);
+  background: none;
+  border: none;
+}
+
+.copied {
+  display: flex;
+  align-items: center;
+  color: var(--pink);
+}
+
+.notCopied:hover {
+  color: var(--pink);
+}
+
+.checkMark {
+  margin-right: 4px;
+  fill: var(--pink);
+}
+
+.paymentCardWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.paymentCardBankWrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.paymentCardBankWrapper:hover {
+  color: var(--pink);
+  text-decoration: underline;
+}
+
+.paymentCardNumber {
+  font-size: 20px;
+}
+
+.commentLogo {
+  margin-right: 10px;
+  height: 25px;
+  width: 25px;
+}
+
+.bankLogo {
+  margin-right: 10px;
+  height: 25px;
+  width: 25px;
+  fill: var(--white);
+}
+
+.paymentWarningText {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.paymentWarningText:first-child {
+  margin-bottom: 15px;
+}
+
+.paymentWarningWrapper {
+  margin-bottom: 35px;
+}
+
+.paymentAgreementWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.paymentAgreementBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 241px;
+  height: 55px;
+  background: var(--main-gradient);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+}
+
+.paymentAgreementBtn:hover {
+  cursor: url('../../../../../assets/svg/customHoverCursor.svg'), pointer;
+  background: var(--button-hover-gradient);
+}
+
+.paymentAgreementBtn:focus {
+  background: var(--button-focus-gradient);
+}
+
+.paymentAgreementBtn:active {
+  background: var(--blue);
+}
+
+@media (max-width: 768px) {
+  .paymentContentWrapper {
+    width: 578px;
+  }
+}
+
+@media (max-width: 600px) {
+  .paymentSection {
+    padding-top: 25px;
+  }
+
+  .paymentSectionTitle {
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+
+  .paymentContentWrapper {
+    width: 320px;
+    padding: 20px 10px 35px 10px;
+  }
+
+  .paymentSectionSubtitle {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .paymentItem {
+    padding: 10px;
+  }
+
+  .paymentItem:nth-child(2) {
+    padding-left: 30px;
+    font-size: 14px;
+  }
+
+  .paymentPhoneBtn {
+    font-size: 12px;
+  }
+
+  .paymentPhone {
+    font-size: 20px;
+  }
+
+  .paymentCardNumber {
+    font-size: 18px;
+  }
+
+  .paymentLogo {
+    width: 25px;
+    margin-right: 8px;
+  }
+
+  .paymentWarningWrapper {
+    margin-bottom: 30px;
+  }
+
+  .paymentWarningText {
+    font-size: 13px;
+  }
+  
+  .paymentAgreementBtn {
+    width: 137px;
+    height: 45px;
+    font-size: 13px;
+  }
+}

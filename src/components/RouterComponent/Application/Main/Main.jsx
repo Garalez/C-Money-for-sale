@@ -2,9 +2,11 @@
 import style from './Main.module.scss';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import { ReactComponent as LogoSvg } from '../../../../assets/svg/violetLogo.svg';
+import UserTransactionsInfo from './AdminPanel/UserTransactionsInfo';
 import Auth from './Auth';
+import Payments from './Payments';
 import AccountInfo from './AccountInfo';
 import AdminPanel from './AdminPanel';
 import WithdrawPanel from './WithdrawPanel';
@@ -13,10 +15,12 @@ export const Main = () => {
   const userData = useSelector((state) => state.userAccountInfo);
   const isUserLoggedIn = localStorage.getItem('userID');
   const navigate = useNavigate();
+  const params = useParams();
+  const qwe = Object.keys(params);
 
   useEffect(() => {
     if (!isUserLoggedIn) navigate('/application/auth');
-    if (isUserLoggedIn && isUserLoggedIn === '00001') {
+    if (isUserLoggedIn && isUserLoggedIn === '00001' && params[qwe[0]][0] !== 'u') {
       navigate('/application/adminPanel');
     }
     if (isUserLoggedIn && isUserLoggedIn !== '00001') {
@@ -31,7 +35,9 @@ export const Main = () => {
           <Routes>
             <Route path='/auth' element={<Auth />} />
             <Route path='/accounts' element={<AccountInfo />} />
+            <Route path='/payments' element={<Payments />} />
             <Route path='/adminPanel' element={<AdminPanel />} />
+            <Route path='/userInfo/:id' element={<UserTransactionsInfo />} />
             <Route
               path='/withdraw'
               element={<WithdrawPanel userData={userData.accountInfo} />}

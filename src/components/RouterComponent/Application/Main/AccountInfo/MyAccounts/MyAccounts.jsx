@@ -30,7 +30,7 @@ export const MyAccounts = ({ account }) => (
             <p className={style.accountInfoText}>
               {account.transactions.length > 0 ?
                 formatDateToNumericForTransaction(
-                  account.transactions[account.transactions.length - 1].date
+                  account.transactions[0].date
                 ) :
                 '---'}
             </p>

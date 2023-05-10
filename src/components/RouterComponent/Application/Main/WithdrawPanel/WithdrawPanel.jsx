@@ -47,6 +47,7 @@ export const WithdrawPanel = ({ userData }) => {
             rubDiff: -inputValues.rub,
             bit: userData.bit,
             bitDiff: 0,
+            userCard: inputValues.card,
           },
         ],
       })
