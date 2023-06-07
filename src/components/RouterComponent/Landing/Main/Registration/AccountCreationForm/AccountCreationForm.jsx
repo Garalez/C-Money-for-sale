@@ -2,26 +2,59 @@
 import style from '../Registration.module.scss';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { usersRequestAsync } from '../../../../../../store/usersRequest/usersRequestActions';
 
 export const AccountCreationForm = ({
   accountCreationFormSubmit,
   formValues,
   handleChange,
 }) => {
+  const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
+  const [isUserExists, setIsUserExists] = useState(false);
   const [isInputValid, setIsInputValid] = useState({
     login: true,
     password: true,
     confirmPassword: true,
   });
 
+  useEffect(() => {
+    dispatch(usersRequestAsync());
+  }, []);
+
   const handleBlur = (e) => {
     const { name } = e.target;
 
     setIsInputValid({ ...isInputValid, [name]: !!formValues[name] });
+    if (name === 'login') setIsUserExists(false);
+  };
+
+  const localHandleChange = (e) => {
+    const { name } = e.target;
+
+    handleChange(e);
+    setIsInputValid({ ...isInputValid, [name]: !!formValues[name] });
+
+    if (name === 'login') setIsUserExists(false);
   };
 
   const formSubmit = (e) => {
     e.preventDefault();
+    const isUserExist = users.accounts.find((user) => user.login === formValues.login);
+
+    if (isUserExist) {
+      setIsUserExists(true),
+      setIsInputValid({
+        login: true,
+        password: true,
+        confirmPassword: true,
+      });
+
+      return;
+    }
 
     if (
       formValues.login &&
@@ -56,10 +89,13 @@ export const AccountCreationForm = ({
             name='login'
             value={formValues.login}
             onBlur={(e) => handleBlur(e)}
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => localHandleChange(e)}
           />{' '}
           {!isInputValid.login && (
             <p className={style.inputsError}>Неправильный логин</p>
+          )}
+          {isUserExists && (
+            <p className={style.inputsError}>Логин уже существует</p>
           )}
         </li>
         <li className={style.registrationInputItem}>
@@ -98,7 +134,7 @@ export const AccountCreationForm = ({
         </li>
         <li className={style.registrationInputItem}>
           <div className={style.registrationAgreementWrapper}>
-            <button className={style.nextBtn}>Зарегистрироваться</button>
+            <button className={style.nextBtn} disabled={users.status !== 'loaded'}>Зарегистрироваться</button>
             <div className={style.registrationPolicyWrapper}>
               <div className={style.customCheckboxWrapper}>
                 <input

@@ -1,6 +1,4 @@
 /* eslint-disable max-len */
-import style from './UserFormAdminPanel.module.scss';
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +6,8 @@ import { userInfoUpdateRequestAsync } from '../../../../../../store/userInfoUpda
 import { userDeleteRequestAsync } from '../../../../../../store/userDeleteRequest/userDeleteRequestActions';
 import { ModalWindow } from '../../../../../../UI/ModalWindow/ModalWindow';
 import Preloader from '../../../../../../UI/Preloader';
+import style from './UserFormAdminPanel.module.scss';
+import PropTypes from 'prop-types';
 
 export const UserFormAdminPanel = ({ user }) => {
   const navigate = useNavigate();

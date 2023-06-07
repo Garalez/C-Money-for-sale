@@ -16,11 +16,16 @@ export const Main = () => {
   const isUserLoggedIn = localStorage.getItem('userID');
   const navigate = useNavigate();
   const params = useParams();
-  const qwe = Object.keys(params);
+  const paramsKeys = Object.keys(params);
+  const paramsFirstLetter = params[paramsKeys[0]][0];
 
   useEffect(() => {
     if (!isUserLoggedIn) navigate('/application/auth');
-    if (isUserLoggedIn && isUserLoggedIn === '00001' && params[qwe[0]][0] !== 'u') {
+    if (
+      isUserLoggedIn &&
+      isUserLoggedIn === '00001' &&
+      paramsFirstLetter !== 'u'
+    ) {
       navigate('/application/adminPanel');
     }
     if (isUserLoggedIn && isUserLoggedIn !== '00001') {

@@ -71,6 +71,7 @@ export const Registration = () => {
       password: formValues.password,
       email: formValues.eMail,
     });
+
     setIsTabValid({ ...isTabValid, thirdTabIsValid: true });
   };
 
